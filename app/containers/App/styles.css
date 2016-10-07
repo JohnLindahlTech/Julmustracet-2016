@@ -4,6 +4,10 @@
  * App container styles
  */
 
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .container {
   display: block;
 }
