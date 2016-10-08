@@ -150,6 +150,31 @@
     "message": "JulmustRacet - Skapa konto"
   },
   {
+    "id": "app.components.TopList.daily",
+    "defaultMessage": "Must/day",
+    "message": "Must/dag"
+  },
+  {
+    "id": "app.components.TopList.empty",
+    "defaultMessage": "No entries",
+    "message": "Ingen data"
+  },
+  {
+    "id": "app.components.TopList.name",
+    "defaultMessage": "Name",
+    "message": "Namn"
+  },
+  {
+    "id": "app.components.TopList.position",
+    "defaultMessage": "Pos.",
+    "message": "Plats"
+  },
+  {
+    "id": "app.components.TopList.total",
+    "defaultMessage": "Total Must",
+    "message": "Totalt"
+  },
+  {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
     "message": "Topplistan för JulmustRacet 2016."

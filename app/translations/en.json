@@ -150,6 +150,31 @@
     "message": ""
   },
   {
+    "id": "app.components.TopList.daily",
+    "defaultMessage": "Must/day",
+    "message": ""
+  },
+  {
+    "id": "app.components.TopList.empty",
+    "defaultMessage": "No entries",
+    "message": ""
+  },
+  {
+    "id": "app.components.TopList.name",
+    "defaultMessage": "Name",
+    "message": ""
+  },
+  {
+    "id": "app.components.TopList.position",
+    "defaultMessage": "Pos.",
+    "message": ""
+  },
+  {
+    "id": "app.components.TopList.total",
+    "defaultMessage": "Total Must",
+    "message": ""
+  },
+  {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
     "message": ""

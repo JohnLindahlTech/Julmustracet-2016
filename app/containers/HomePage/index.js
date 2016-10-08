@@ -12,10 +12,28 @@
 import React from 'react';
 import messages from './messages';
 import Page from '../../components/Page';
+import TopList from '../../components/TopList';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    return (<Page messages={messages} />);
+    // TODO Get rows data.
+    const rows = [
+      {
+        position: 1,
+        name: 'Nils Larson',
+        daily: 1.23,
+        total: 45.6789,
+      },
+      {
+        position: 2,
+        name: 'Klas Klättermus',
+        daily: 10.23,
+        total: 145.6789,
+      },
+    ];
+    return (<Page messages={messages}>
+      <TopList rows={rows} />
+    </Page>);
   }
 }
