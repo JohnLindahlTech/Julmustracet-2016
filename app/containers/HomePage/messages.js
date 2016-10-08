@@ -8,10 +8,14 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.HomePage.header',
-    defaultMessage: 'This is HomePage components !',
+    defaultMessage: 'JulmustRacet',
   },
   title: {
     id: 'app.components.HomePage.title',
     defaultMessage: 'JulmustRacet',
+  },
+  description: {
+    id: 'app.components.HomePage.description',
+    defaultMessage: 'Julmustracet the glorious.',
   },
 });

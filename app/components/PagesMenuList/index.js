@@ -4,23 +4,25 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
+
 import IconButton from 'material-ui/IconButton/IconButton';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';
-import { Link } from 'react-router';
+import NavMenuItem from '../NavMenuItem';
 import messages from './messages';
-import styles from './styles.css';
-
 
 function PagesMenuList(props) {
+  const {
+    menu,
+    items,
+  } = props;
   return (
     <IconMenu
-      {...props}
+      {...menu}
       iconButtonElement={
         <IconButton><MenuIcon color={white} /></IconButton>
       }
@@ -28,13 +30,26 @@ function PagesMenuList(props) {
       targetOrigin={{ horizontal: 'left', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
     >
-      <MenuItem primaryText={<Link to="/" className={styles.menuLink}><FormattedMessage {...messages.home} /></Link>} />
-      <MenuItem primaryText={<Link to="contenstants" className={styles.menuLink}><FormattedMessage {...messages.contenstants} /></Link>} />
-      <MenuItem primaryText={<Link to="/brands" className={styles.menuLink}><FormattedMessage {...messages.brands} /></Link>} />
-      <MenuItem primaryText={<Link to="/about" className={styles.menuLink}><FormattedMessage {...messages.about} /></Link>} />
-      <MenuItem primaryText={<Link to="/add" className={styles.menuLink}><FormattedMessage {...messages.add} /></Link>} />
+    {items.map((item) => (<NavMenuItem {...item} key={item.to} />))}
     </IconMenu>
   );
 }
-
+PagesMenuList.propTypes = {
+  menu: PropTypes.object,
+  items: PropTypes.arrayOf(
+    PropTypes.object,
+  ),
+};
+PagesMenuList.defaultProps = {
+  menu: {},
+  items: [
+    { to: '/', children: <FormattedMessage {...messages.home} /> },
+    { to: '/leaderboard', children: <FormattedMessage {...messages.leaderboard} /> },
+    { to: '/brands', children: <FormattedMessage {...messages.brands} /> },
+    { to: '/about', children: <FormattedMessage {...messages.about} /> },
+    { to: '/login', children: <FormattedMessage {...messages.login} /> },
+    { to: '/signup', children: <FormattedMessage {...messages.signup} /> },
+    { to: '/add', children: <FormattedMessage {...messages.add} /> },
+  ],
+};
 export default PagesMenuList;

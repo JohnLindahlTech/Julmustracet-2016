@@ -22,8 +22,16 @@ export default defineMessages({
     id: 'app.components.PagesMenuList.brands',
     defaultMessage: 'Brands',
   },
-  contenstants: {
-    id: 'app.components.PagesMenuList.contenstants',
-    defaultMessage: 'Contenstants',
+  leaderboard: {
+    id: 'app.components.PagesMenuList.leaderboard',
+    defaultMessage: 'Leaderboard',
+  },
+  login: {
+    id: 'app.components.PagesMenuList.leaderboard',
+    defaultMessage: 'Login',
+  },
+  signup: {
+    id: 'app.components.PagesMenuList.signup',
+    defaultMessage: 'Signup',
   },
 });

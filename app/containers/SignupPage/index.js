@@ -1,5 +1,5 @@
 /*
- * NotFoundPage
+ * HomePage
  *
  * This is the first thing users see of our App, at the '/' route
  *
@@ -13,7 +13,7 @@ import React from 'react';
 import messages from './messages';
 import Page from '../../components/Page';
 
-export default class NotFoundPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export default class SignupPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (<Page messages={messages} />);

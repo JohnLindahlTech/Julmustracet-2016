@@ -34,6 +34,54 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/leaderboard',
+      name: 'leaderboardPage',
+      getComponent(location, cb) {
+        System.import('containers/LeaderboardPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/about',
+      name: 'aboutPage',
+      getComponent(location, cb) {
+        System.import('containers/AboutPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/brands',
+      name: 'brandsPage',
+      getComponent(location, cb) {
+        System.import('containers/BrandsPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/login',
+      name: 'loginPage',
+      getComponent(location, cb) {
+        System.import('containers/LoginPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/signup',
+      name: 'signupPage',
+      getComponent(location, cb) {
+        System.import('containers/SignupPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/add',
+      name: 'addPage',
+      getComponent(location, cb) {
+        System.import('containers/AddPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

@@ -8,6 +8,14 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.NotFoundPage.header',
-    defaultMessage: 'This is NotFoundPage component !',
+    defaultMessage: '404',
+  },
+  title: {
+    id: 'app.components.NotFoundPage.title',
+    defaultMessage: 'JulmustRacet 404',
+  },
+  description: {
+    id: 'app.components.NotFoundPage.description',
+    defaultMessage: 'Could not find the requested page on JulmustRacet.',
   },
 });

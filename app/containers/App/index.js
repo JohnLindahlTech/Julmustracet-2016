@@ -12,20 +12,32 @@
  */
 
 import React from 'react';
-
+import { injectIntl, intlShape } from 'react-intl';
+import messages from './messages';
+import Helmet from 'react-helmet';
 import styles from './styles.css';
 
-export default class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class App extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     children: React.PropTypes.node,
+    intl: intlShape.isRequired,
   };
 
   render() {
+    const { formatMessage } = this.props.intl;
     return (
       <div className={styles.container}>
+        <Helmet
+          title={formatMessage(messages.title)}
+          meta={[
+            { name: 'description', content: formatMessage(messages.description) },
+          ]}
+        />
         {React.Children.toArray(this.props.children)}
       </div>
     );
   }
 }
+
+export default injectIntl(App);
