@@ -150,21 +150,6 @@
     "message": "JulmustRacet - Skapa användare"
   },
   {
-    "id": "app.containers.ContestantsPage.description",
-    "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
-    "message": ""
-  },
-  {
-    "id": "app.containers.ContestantsPage.header",
-    "defaultMessage": "Leaderboard",
-    "message": ""
-  },
-  {
-    "id": "app.containers.ContestantsPage.title",
-    "defaultMessage": "JulmustRacet Leaderboard",
-    "message": ""
-  },
-  {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
     "message": "Topplistan för JulmustRacet 2016."
