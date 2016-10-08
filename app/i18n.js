@@ -7,18 +7,18 @@
 import { addLocaleData } from 'react-intl';
 
 import svLocaleData from 'react-intl/locale-data/sv';
+import enLocaleData from 'react-intl/locale-data/en';
 
 export const appLocales = [
   'en',
   'sv',
-  'sv',
-
-
 ];
 
 import svTranslationMessages from './translations/sv.json';
+import enTranslationMessages from './translations/en.json';
 
 addLocaleData(svLocaleData);
+addLocaleData(enLocaleData);
 
 const formatTranslationMessages = (messages) => {
   const formattedMessages = {};
@@ -31,4 +31,5 @@ const formatTranslationMessages = (messages) => {
 
 export const translationMessages = {
   sv: formatTranslationMessages(svTranslationMessages),
+  en: formatTranslationMessages(enTranslationMessages),
 };
