@@ -45,11 +45,7 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
 
 Page.propTypes = {
   intl: intlShape.isRequired,
-  messages: PropTypes.shape({
-    title: PropTypes.object.isRequired,
-    header: PropTypes.object.isRequired,
-    description: PropTypes.object.isRequired,
-  }),
+  messages: PropTypes.object,
   children: PropTypes.node,
 };
 

@@ -16,6 +16,10 @@ import Page from '../../components/Page';
 export default class SignupPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    return (<Page messages={messages} />);
+    return (
+      <Page messages={messages}>
+        Hej
+      </Page>
+    );
   }
 }
