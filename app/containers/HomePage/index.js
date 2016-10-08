@@ -33,6 +33,9 @@ export default class HomePage extends React.Component { // eslint-disable-line r
       },
     ];
     return (<Page messages={messages}>
+      <h2>Test 1</h2>
+      <TopList rows={rows} />
+      <h2>Test 2</h2>
       <TopList rows={rows} />
     </Page>);
   }

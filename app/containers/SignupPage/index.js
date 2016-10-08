@@ -1,5 +1,5 @@
 /*
- * HomePage
+ * SignupPage
  *
  * This is the first thing users see of our App, at the '/' route
  *
@@ -9,13 +9,107 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import messages from './messages';
 import Page from '../../components/Page';
+import { connect } from 'react-redux';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
+import { Field, reduxForm, formValueSelector } from 'redux-form/immutable';
+import { TextField, Toggle } from 'redux-form-material-ui';
+import { injectIntl, intlShape } from 'react-intl';
 
-export default class SignupPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class SignupPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    intl: intlShape.isRequired,
+    handleSubmit: PropTypes.func,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+    showPassword: PropTypes.bool,
+    reset: PropTypes.func,
+  };
+
+  static defaultProps = {
+
+  }
 
   render() {
-    return (<Page messages={messages} />);
+    const {
+      intl: {
+        formatMessage,
+      },
+      handleSubmit,
+      pristine,
+      reset,
+      submitting,
+      showPassword,
+    } = this.props;
+    return (
+      <Page messages={messages}>
+        <form onSubmit={handleSubmit} noValidate>
+          <div>
+            <Field name="firstName" component={TextField} type="text" hintText="John" floatingLabelText={formatMessage(messages.firstName)} />
+          </div>
+          <div>
+            <Field name="lastName" component={TextField} type="text" hintText="Doe" floatingLabelText={formatMessage(messages.lastName)} />
+          </div>
+          <div>
+            <Field name="displayName" component={TextField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.displayName)} />
+          </div>
+          <div>
+            <Field name="email" component={TextField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
+          </div>
+          <div>
+            <Field name="password" component={TextField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
+          </div>
+          <div>
+            <Field name="showPassword" component={Toggle} label={formatMessage(messages.showPassword)} labelPosition="right" />
+          </div>
+          <div>
+            <FlatButton
+              label={formatMessage(messages.resetForm)}
+              secondary
+              onTouchTap={reset}
+            />
+            <RaisedButton type="submit" primary disabled={pristine || submitting} label={formatMessage(messages.submitForm)} />
+          </div>
+        </form>
+      </Page>
+    );
   }
 }
+
+function validate(values) {
+  const normalValues = values.toJS();
+  const errors = {};
+  const requiredFields = ['firstName', 'lastName', 'displayName', 'email', 'password'];
+  requiredFields.forEach((field) => {
+    if (!normalValues[field]) {
+      errors[field] = 'Required';
+    }
+  });
+  if (normalValues.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(normalValues.email)) {
+    errors.email = 'Invalid email address';
+  }
+  if (normalValues.password && normalValues.password.length < 6) {
+    errors.password = 'Must be atleast 6 letters long.';
+  }
+  return errors;
+}
+
+const TranslatedSignupPage = injectIntl(SignupPage);
+
+const SignupFormPage = reduxForm({
+  form: 'registerUser',
+  validate,
+})(TranslatedSignupPage);
+
+const selector = formValueSelector('registerUser');
+const SelectedSignupFormPage = connect(
+  (state) => {
+    const showPassword = selector(state, 'showPassword');
+    return { showPassword };
+  }
+)(SignupFormPage);
+
+export default SelectedSignupFormPage;

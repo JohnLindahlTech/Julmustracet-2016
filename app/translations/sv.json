@@ -140,9 +140,49 @@
     "message": "Skapa en konto för JulmustRacet 2016."
   },
   {
+    "id": "app.components.SignupPage.displayName",
+    "defaultMessage": "Display Name",
+    "message": "Användarnamn"
+  },
+  {
+    "id": "app.components.SignupPage.email",
+    "defaultMessage": "Email",
+    "message": "Epost"
+  },
+  {
+    "id": "app.components.SignupPage.firstName",
+    "defaultMessage": "First Name",
+    "message": "Förnamn"
+  },
+  {
     "id": "app.components.SignupPage.header",
     "defaultMessage": "Signup",
     "message": "Skapa konto"
+  },
+  {
+    "id": "app.components.SignupPage.lastName",
+    "defaultMessage": "Last Name",
+    "message": "Efternamn"
+  },
+  {
+    "id": "app.components.SignupPage.password",
+    "defaultMessage": "Password",
+    "message": "Lösneord"
+  },
+  {
+    "id": "app.components.SignupPage.resetForm",
+    "defaultMessage": "Reset",
+    "message": "Återställ"
+  },
+  {
+    "id": "app.components.SignupPage.showPassword",
+    "defaultMessage": "Show password",
+    "message": "Visa lösenord"
+  },
+  {
+    "id": "app.components.SignupPage.submitForm",
+    "defaultMessage": "Submit",
+    "message": "Skicka"
   },
   {
     "id": "app.components.SignupPage.title",

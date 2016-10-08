@@ -140,8 +140,48 @@
     "message": ""
   },
   {
+    "id": "app.components.SignupPage.displayName",
+    "defaultMessage": "Display Name",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.email",
+    "defaultMessage": "Email",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.firstName",
+    "defaultMessage": "First Name",
+    "message": ""
+  },
+  {
     "id": "app.components.SignupPage.header",
     "defaultMessage": "Signup",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.lastName",
+    "defaultMessage": "Last Name",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.password",
+    "defaultMessage": "Password",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.resetForm",
+    "defaultMessage": "Reset",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.showPassword",
+    "defaultMessage": "Show password",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.submitForm",
+    "defaultMessage": "Submit",
     "message": ""
   },
   {

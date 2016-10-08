@@ -1,21 +1,62 @@
 /*
- * HomePage
+ * AddPage
  *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import messages from './messages';
 import Page from '../../components/Page';
+import { Field, reduxForm } from 'redux-form/immutable';
+import RaisedButton from 'material-ui/RaisedButton';
+import { TextField } from 'redux-form-material-ui';
 
-export default class AddPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+class AddPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    handleSubmit: PropTypes.func,
+    pristine: PropTypes.bool,
+    submitting: PropTypes.bool,
+  };
+
+  static defaultProps = {
+
+  }
 
   render() {
-    return (<Page messages={messages} />);
+    const {
+      handleSubmit,
+      pristine,
+      submitting,
+    } = this.props;
+    return (
+      <Page messages={messages}>
+        <form onSubmit={handleSubmit} noValidate>
+          <div>
+            <Field name="data" component={TextField} type="text" hintText="Data" floatingLabelText="Data" />
+          </div>
+          <div>
+            <RaisedButton type="submit" disabled={pristine || submitting} label="Submit" />
+          </div>
+        </form>
+      </Page>
+    );
   }
 }
+
+function validate(values) {
+  const normalValues = values.toJS();
+  const errors = {};
+  const requiredFields = ['data'];
+  requiredFields.forEach((field) => {
+    if (!normalValues[field]) {
+      errors[field] = 'Required';
+    }
+  });
+  return errors;
+}
+
+const AddFormPage = reduxForm({
+  form: 'add',
+  validate,
+})(AddPage);
+
+export default AddFormPage;
