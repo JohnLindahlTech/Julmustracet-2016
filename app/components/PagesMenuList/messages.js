@@ -27,7 +27,7 @@ export default defineMessages({
     defaultMessage: 'Leaderboard',
   },
   login: {
-    id: 'app.components.PagesMenuList.leaderboard',
+    id: 'app.components.PagesMenuList.login',
     defaultMessage: 'Login',
   },
   signup: {

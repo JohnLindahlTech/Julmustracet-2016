@@ -100,6 +100,41 @@
     "message": ""
   },
   {
+    "id": "app.components.PagesMenuList.about",
+    "defaultMessage": "About",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.add",
+    "defaultMessage": "Add",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.brands",
+    "defaultMessage": "Brands",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.home",
+    "defaultMessage": "Home",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.leaderboard",
+    "defaultMessage": "Leaderboard",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.login",
+    "defaultMessage": "Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.PagesMenuList.signup",
+    "defaultMessage": "Signup",
+    "message": ""
+  },
+  {
     "id": "app.components.SignupPage.description",
     "defaultMessage": "Signup for JulmustRacet.",
     "message": ""

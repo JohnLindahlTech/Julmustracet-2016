@@ -2,131 +2,166 @@
   {
     "id": "app.components.AboutPage.description",
     "defaultMessage": "About Julmustracet.",
-    "message": ""
+    "message": "Om JulmustRacet"
   },
   {
     "id": "app.components.AboutPage.header",
     "defaultMessage": "About",
-    "message": ""
+    "message": "Om JulmustRacet"
   },
   {
     "id": "app.components.AboutPage.title",
     "defaultMessage": "JulmustRacet About",
-    "message": ""
+    "message": "JulmustRacet - Om"
   },
   {
     "id": "app.components.AddPage.description",
     "defaultMessage": "Add must for JulmustRacet.",
-    "message": ""
+    "message": "Registera drucken must till JulmustRacet."
   },
   {
     "id": "app.components.AddPage.header",
     "defaultMessage": "Add",
-    "message": ""
+    "message": "Registrera must"
   },
   {
     "id": "app.components.AddPage.title",
     "defaultMessage": "JulmustRacet Add",
-    "message": ""
+    "message": "JulmustRacet - Registrera must"
   },
   {
     "id": "app.components.App.description",
     "defaultMessage": "Welcome to JulmustRacet!",
-    "message": ""
+    "message": "Välkommen till 2016 års upplaga av JulmustRacet."
   },
   {
     "id": "app.components.App.title",
     "defaultMessage": "JulmustRacet",
-    "message": ""
+    "message": "JulmustRacet 2016"
   },
   {
     "id": "app.components.BrandsPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on Brands.",
-    "message": ""
+    "message": "Topplistan för de olika Julmust-tillverkarna."
   },
   {
     "id": "app.components.BrandsPage.header",
     "defaultMessage": "Brands",
-    "message": ""
+    "message": "Märken"
   },
   {
     "id": "app.components.BrandsPage.title",
     "defaultMessage": "JulmustRacet Brands",
-    "message": ""
+    "message": "JulmustRacet - Märken"
   },
   {
     "id": "app.components.HomePage.description",
     "defaultMessage": "Julmustracet the glorious.",
-    "message": ""
+    "message": "JulmustRacet 2016 års upplaga."
   },
   {
     "id": "app.components.HomePage.header",
     "defaultMessage": "JulmustRacet",
-    "message": ""
+    "message": "JulmustRacet 2016"
   },
   {
     "id": "app.components.HomePage.title",
     "defaultMessage": "JulmustRacet",
-    "message": ""
+    "message": "JulmustRacet 2016"
   },
   {
     "id": "app.components.LoginPage.description",
     "defaultMessage": "Login to be able to add more Must on JulmustRacet.",
-    "message": ""
+    "message": "Logga in till JulmustRacet 2016 för att kunna registera must."
   },
   {
     "id": "app.components.LoginPage.header",
     "defaultMessage": "Login",
-    "message": ""
+    "message": "Logga in"
   },
   {
     "id": "app.components.LoginPage.title",
     "defaultMessage": "JulmustRacet Login",
-    "message": ""
+    "message": "JulmustRacet - Logga in"
   },
   {
     "id": "app.components.NotFoundPage.description",
     "defaultMessage": "Could not find the requested page on JulmustRacet.",
-    "message": ""
+    "message": "Denna sida finns ej, försök på nytt."
   },
   {
     "id": "app.components.NotFoundPage.header",
     "defaultMessage": "404",
-    "message": ""
+    "message": "Sidan finns ej"
   },
   {
     "id": "app.components.NotFoundPage.title",
     "defaultMessage": "JulmustRacet 404",
-    "message": ""
+    "message": "JulmustRacet - Kunde inte hitta sidan"
+  },
+  {
+    "id": "app.components.PagesMenuList.about",
+    "defaultMessage": "About",
+    "message": "Om JulmustRacet"
+  },
+  {
+    "id": "app.components.PagesMenuList.add",
+    "defaultMessage": "Add",
+    "message": "Lägg till"
+  },
+  {
+    "id": "app.components.PagesMenuList.brands",
+    "defaultMessage": "Brands",
+    "message": "Märken"
+  },
+  {
+    "id": "app.components.PagesMenuList.home",
+    "defaultMessage": "Home",
+    "message": "Hem"
+  },
+  {
+    "id": "app.components.PagesMenuList.leaderboard",
+    "defaultMessage": "Leaderboard",
+    "message": "Topplistan"
+  },
+  {
+    "id": "app.components.PagesMenuList.login",
+    "defaultMessage": "Login",
+    "message": "Logga in"
+  },
+  {
+    "id": "app.components.PagesMenuList.signup",
+    "defaultMessage": "Signup",
+    "message": "Skapa konto"
   },
   {
     "id": "app.components.SignupPage.description",
     "defaultMessage": "Signup for JulmustRacet.",
-    "message": ""
+    "message": "Skapa en användare för JulmustRacet 2016."
   },
   {
     "id": "app.components.SignupPage.header",
     "defaultMessage": "Signup",
-    "message": ""
+    "message": "Skapa användare"
   },
   {
     "id": "app.components.SignupPage.title",
     "defaultMessage": "JulmustRacet Signup",
-    "message": ""
+    "message": "JulmustRacet - Skapa användare"
   },
   {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
-    "message": ""
+    "message": "Topplistan för JulmustRacet 2016."
   },
   {
     "id": "app.containers.LeaderboardPage.header",
     "defaultMessage": "Leaderboard",
-    "message": ""
+    "message": "Topplistan"
   },
   {
     "id": "app.containers.LeaderboardPage.title",
     "defaultMessage": "JulmustRacet Leaderboard",
-    "message": ""
+    "message": "JulmustRacet - Topplistan"
   }
 ]
