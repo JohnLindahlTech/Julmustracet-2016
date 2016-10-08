@@ -1,7 +1,67 @@
 [
   {
+    "id": "app.components.AboutPage.description",
+    "defaultMessage": "About Julmustracet.",
+    "message": ""
+  },
+  {
+    "id": "app.components.AboutPage.header",
+    "defaultMessage": "About",
+    "message": ""
+  },
+  {
+    "id": "app.components.AboutPage.title",
+    "defaultMessage": "JulmustRacet About",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddPage.description",
+    "defaultMessage": "Add must for JulmustRacet.",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddPage.header",
+    "defaultMessage": "Add",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddPage.title",
+    "defaultMessage": "JulmustRacet Add",
+    "message": ""
+  },
+  {
+    "id": "app.components.App.description",
+    "defaultMessage": "Welcome to JulmustRacet!",
+    "message": ""
+  },
+  {
+    "id": "app.components.App.title",
+    "defaultMessage": "JulmustRacet",
+    "message": ""
+  },
+  {
+    "id": "app.components.BrandsPage.description",
+    "defaultMessage": "Leaderboard for JulmustRacet based on Brands.",
+    "message": ""
+  },
+  {
+    "id": "app.components.BrandsPage.header",
+    "defaultMessage": "Brands",
+    "message": ""
+  },
+  {
+    "id": "app.components.BrandsPage.title",
+    "defaultMessage": "JulmustRacet Brands",
+    "message": ""
+  },
+  {
+    "id": "app.components.HomePage.description",
+    "defaultMessage": "Julmustracet the glorious.",
+    "message": ""
+  },
+  {
     "id": "app.components.HomePage.header",
-    "defaultMessage": "This is HomePage components !",
+    "defaultMessage": "JulmustRacet",
     "message": ""
   },
   {
@@ -10,33 +70,63 @@
     "message": ""
   },
   {
+    "id": "app.components.LoginPage.description",
+    "defaultMessage": "Login to be able to add more Must on JulmustRacet.",
+    "message": ""
+  },
+  {
+    "id": "app.components.LoginPage.header",
+    "defaultMessage": "Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.LoginPage.title",
+    "defaultMessage": "JulmustRacet Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.NotFoundPage.description",
+    "defaultMessage": "Could not find the requested page on JulmustRacet.",
+    "message": ""
+  },
+  {
     "id": "app.components.NotFoundPage.header",
-    "defaultMessage": "This is NotFoundPage component !",
+    "defaultMessage": "404",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.about",
-    "defaultMessage": "About",
+    "id": "app.components.NotFoundPage.title",
+    "defaultMessage": "JulmustRacet 404",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.add",
-    "defaultMessage": "Add",
+    "id": "app.components.SignupPage.description",
+    "defaultMessage": "Signup for JulmustRacet.",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.brands",
-    "defaultMessage": "Brands",
+    "id": "app.components.SignupPage.header",
+    "defaultMessage": "Signup",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.contenstants",
-    "defaultMessage": "Contenstants",
+    "id": "app.components.SignupPage.title",
+    "defaultMessage": "JulmustRacet Signup",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.home",
-    "defaultMessage": "Home",
+    "id": "app.containers.LeaderboardPage.description",
+    "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
+    "message": ""
+  },
+  {
+    "id": "app.containers.LeaderboardPage.header",
+    "defaultMessage": "Leaderboard",
+    "message": ""
+  },
+  {
+    "id": "app.containers.LeaderboardPage.title",
+    "defaultMessage": "JulmustRacet Leaderboard",
     "message": ""
   }
 ]
