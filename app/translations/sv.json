@@ -22,12 +22,12 @@
   {
     "id": "app.components.AddPage.header",
     "defaultMessage": "Add",
-    "message": "Registrera must"
+    "message": "Lägg till must"
   },
   {
     "id": "app.components.AddPage.title",
     "defaultMessage": "JulmustRacet Add",
-    "message": "JulmustRacet - Registrera must"
+    "message": "JulmustRacet - Lägg till must"
   },
   {
     "id": "app.components.App.description",
@@ -107,7 +107,7 @@
   {
     "id": "app.components.PagesMenuList.add",
     "defaultMessage": "Add",
-    "message": "Lägg till"
+    "message": "Lägg till must"
   },
   {
     "id": "app.components.PagesMenuList.brands",
@@ -137,17 +137,17 @@
   {
     "id": "app.components.SignupPage.description",
     "defaultMessage": "Signup for JulmustRacet.",
-    "message": "Skapa en användare för JulmustRacet 2016."
+    "message": "Skapa en konto för JulmustRacet 2016."
   },
   {
     "id": "app.components.SignupPage.header",
     "defaultMessage": "Signup",
-    "message": "Skapa användare"
+    "message": "Skapa konto"
   },
   {
     "id": "app.components.SignupPage.title",
     "defaultMessage": "JulmustRacet Signup",
-    "message": "JulmustRacet - Skapa användare"
+    "message": "JulmustRacet - Skapa konto"
   },
   {
     "id": "app.containers.LeaderboardPage.description",
