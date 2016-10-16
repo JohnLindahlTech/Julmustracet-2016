@@ -11,7 +11,7 @@ import messages from './messages';
 import TopListRow from '../TopListRow';
 
 
-function TopList({ rows }) {
+function TopList({ rows, username }) {
   return (
     <Table selectable={false}>
       <TableHeader
@@ -21,7 +21,7 @@ function TopList({ rows }) {
       >
         <TableRow>
           <TableHeaderColumn><FormattedMessage {...messages.position} /></TableHeaderColumn>
-          <TableHeaderColumn><FormattedMessage {...messages.name} /></TableHeaderColumn>
+          <TableHeaderColumn><FormattedMessage {...messages[username ? 'username' : 'name']} /></TableHeaderColumn>
           <TableHeaderColumn><FormattedMessage {...messages.daily} /></TableHeaderColumn>
           <TableHeaderColumn><FormattedMessage {...messages.total} /></TableHeaderColumn>
         </TableRow>
@@ -31,7 +31,7 @@ function TopList({ rows }) {
         showRowHover
         stripedRows
       >
-        {rows.length ? rows.map((row) => (<TopListRow key={row.position} {...row} />)) : renderEmpty()}
+        {rows.length ? rows.map((row) => (<TopListRow key={row.position} {...row} usernameAsName={username} />)) : renderEmpty()}
       </TableBody>
     </Table>
   );
@@ -39,6 +39,7 @@ function TopList({ rows }) {
 
 TopList.propTypes = {
   rows: PropTypes.array,
+  username: PropTypes.bool,
 };
 
 TopList.defaultProps = {

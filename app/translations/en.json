@@ -215,6 +215,16 @@
     "message": ""
   },
   {
+    "id": "app.components.TopList.username",
+    "defaultMessage": "Username",
+    "message": ""
+  },
+  {
+    "id": "app.containers.BrandTopList.header",
+    "defaultMessage": "Top Brands",
+    "message": ""
+  },
+  {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
     "message": ""
@@ -227,6 +237,11 @@
   {
     "id": "app.containers.LeaderboardPage.title",
     "defaultMessage": "JulmustRacet Leaderboard",
+    "message": ""
+  },
+  {
+    "id": "app.containers.PlayerTopList.header",
+    "defaultMessage": "Top Players",
     "message": ""
   }
 ]

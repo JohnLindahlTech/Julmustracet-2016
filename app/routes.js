@@ -22,12 +22,20 @@ export default function createRoutes(store) {
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
+          System.import('containers/PlayerTopList/reducer'),
+          System.import('containers/PlayerTopList/sagas'),
+          System.import('containers/BrandTopList/reducer'),
+          System.import('containers/BrandTopList/sagas'),
           System.import('containers/HomePage'),
         ]);
 
         const renderRoute = loadModule(cb);
 
-        importModules.then(([component]) => {
+        importModules.then(([playerReducer, playerSagas, brandReducer, brandSagas, component]) => {
+          injectReducer('playerTopList', playerReducer.default);
+          injectSagas(playerSagas.default);
+          injectReducer('brandTopList', brandReducer.default);
+          injectSagas(brandSagas.default);
           renderRoute(component);
         });
 
@@ -37,9 +45,21 @@ export default function createRoutes(store) {
       path: '/leaderboard',
       name: 'leaderboardPage',
       getComponent(location, cb) {
-        System.import('containers/LeaderboardPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
+        const importModules = Promise.all([
+          System.import('containers/PlayerTopList/reducer'),
+          System.import('containers/PlayerTopList/sagas'),
+          System.import('containers/LeaderboardPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([playerReducer, playerSagas, component]) => {
+          injectReducer('playerTopList', playerReducer.default);
+          injectSagas(playerSagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     }, {
       path: '/about',
@@ -53,8 +73,17 @@ export default function createRoutes(store) {
       path: '/brands',
       name: 'brandsPage',
       getComponent(location, cb) {
-        System.import('containers/BrandsPage')
-          .then(loadModule(cb))
+        const importModules = Promise.all([
+          System.import('containers/BrandTopList/reducer'),
+          System.import('containers/BrandTopList/sagas'),
+          System.import('containers/BrandsPage'),
+        ]);
+        const renderRoute = loadModule(cb);
+        importModules.then(([brandReducer, brandSagas, component]) => {
+          injectReducer('brandTopList', brandReducer.default);
+          injectSagas(brandSagas.default);
+          renderRoute(component);
+        })
           .catch(errorLoading);
       },
     }, {

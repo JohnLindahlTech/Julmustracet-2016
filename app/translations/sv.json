@@ -215,6 +215,16 @@
     "message": "Totalt"
   },
   {
+    "id": "app.components.TopList.username",
+    "defaultMessage": "Username",
+    "message": "Användarnamn"
+  },
+  {
+    "id": "app.containers.BrandTopList.header",
+    "defaultMessage": "Top Brands",
+    "message": "Bästa Märkena"
+  },
+  {
     "id": "app.containers.LeaderboardPage.description",
     "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
     "message": "Topplistan för JulmustRacet 2016."
@@ -228,5 +238,10 @@
     "id": "app.containers.LeaderboardPage.title",
     "defaultMessage": "JulmustRacet Leaderboard",
     "message": "JulmustRacet - Topplistan"
+  },
+  {
+    "id": "app.containers.PlayerTopList.header",
+    "defaultMessage": "Top Players",
+    "message": "Bästa Drickarna"
   }
 ]

@@ -14,6 +14,10 @@ export default defineMessages({
     id: 'app.components.TopList.name',
     defaultMessage: 'Name',
   },
+  username: {
+    id: 'app.components.TopList.username',
+    defaultMessage: 'Username',
+  },
   daily: {
     id: 'app.components.TopList.daily',
     defaultMessage: 'Must/day',
