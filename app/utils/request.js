@@ -1,4 +1,10 @@
 import 'whatwg-fetch';
+import auth from '../containers/auth/auth';
+
+const defaultHeaders = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+};
 
 /**
  * Parses the JSON returned by a network request
@@ -36,10 +42,42 @@ function checkStatus(response) {
  *
  * @return {object}           An object containing either "data" or "err"
  */
-export default function request(url, options) {
-  return fetch(url, options)
+export default function request(url, options = {}) {
+  const token = auth.getToken();
+  const headers = Object.assign({}, defaultHeaders, options.headers, { Authorization: token });
+  const newOpts = Object.assign({}, options, { headers });
+  return fetch(url, newOpts)
     .then(checkStatus)
     .then(parseJSON)
     .then((data) => ({ data }))
     .catch((error) => ({ error }));
+}
+
+
+export function post(url, data, options = {}) {
+  const body = data ? JSON.stringify(data) : undefined;
+  const newOpts = Object.assign({}, options, {
+    method: 'post',
+    body,
+  });
+  return request(url, newOpts);
+}
+
+export function get(url, options = {}) {
+  const newOpts = Object.assign({}, options, { method: 'get' });
+  return request(url, newOpts);
+}
+
+export function put(url, data, options = {}) {
+  const body = data ? JSON.stringify(data) : undefined;
+  const newOpts = Object.assign({}, options, {
+    method: 'put',
+    body,
+  });
+  return request(url, newOpts);
+}
+
+export function del(url, options = {}) {
+  const newOpts = Object.assign({}, options, { method: 'delete' });
+  return request(url, newOpts);
 }

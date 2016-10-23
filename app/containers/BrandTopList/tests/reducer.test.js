@@ -1,9 +1,9 @@
 import expect from 'expect';
-import playerTopListReducer from '../reducer';
+import brandTopListReducer from '../reducer';
 import { fromJS } from 'immutable';
 
-describe('playerTopListReducer', () => {
+describe('brandTopListReducer', () => {
   it('returns the initial state', () => {
-    expect(playerTopListReducer(undefined, {})).toEqual(fromJS({}));
+    expect(brandTopListReducer(undefined, {})).toEqual(fromJS({}));
   });
 });

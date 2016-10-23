@@ -4,6 +4,10 @@
 // about the code splitting business
 import { getAsyncInjectors } from 'utils/asyncInjectors';
 
+const HOME_PATH = '/';
+const LOGIN_PATH = '/login';
+const AUTH_PATHS = ['/add'];
+
 const errorLoading = (err) => {
   console.error('Dynamic page loading failed', err); // eslint-disable-line no-console
 };
@@ -12,13 +16,53 @@ const loadModule = (cb) => (componentModule) => {
   cb(null, componentModule.default);
 };
 
+/**
+* Checks authentication status on route change
+* @param  {object}   nextState The state we want to change into when we change routes
+* @param  {function} replace Function provided by React Router to replace the location
+*/
+function checkAuth(store) {
+  return (nextState, replace) => {
+    const state = store.getState();
+    const loggedIn = state.getIn(['auth', 'loggedIn']);
+
+    // store.dispatch(clearError());
+    const a = AUTH_PATHS.includes(nextState.location.pathname) ? 'Must be authorized.' : 'Must not be authorized.';
+    const b = loggedIn ? 'Is logged in.' : 'Is not logged in. ';
+    const c = nextState.location.state && nextState.location.pathname ? 'Next loc exists.' : 'No next loc.';
+
+    console.log(a, b, c);
+
+    if (AUTH_PATHS.includes(nextState.location.pathname)) {
+      if (loggedIn) {
+        return;
+      }
+      if (nextState.location.state && nextState.location.pathname) {
+        replace(nextState.location.pathname);
+      } else {
+        replace(LOGIN_PATH);
+      }
+    } else {
+      if (!loggedIn) {
+        return;
+      }
+      if (nextState.location.state && nextState.location.pathname) {
+        replace(nextState.location.pathname);
+      } else {
+        replace(HOME_PATH);
+      }
+    }
+  };
+}
+
+
 export default function createRoutes(store) {
   // Create reusable async injectors using getAsyncInjectors factory
   const { injectReducer, injectSagas } = getAsyncInjectors(store); // eslint-disable-line no-unused-vars
 
   return [
     {
-      path: '/',
+      path: HOME_PATH,
       name: 'home',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
@@ -87,14 +131,26 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
-      path: '/login',
+      onEnter: checkAuth(store),
+      path: LOGIN_PATH,
       name: 'loginPage',
       getComponent(location, cb) {
-        System.import('containers/LoginPage')
-          .then(loadModule(cb))
+        const importModules = Promise.all([
+          System.import('containers/auth/reducers'),
+          System.import('containers/auth/sagas'),
+          System.import('containers/LoginPage'),
+        ]);
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([authReducer, authSagas, component]) => {
+          injectReducer('auth', authReducer.default);
+          injectSagas(authSagas.default);
+          renderRoute(component);
+        })
           .catch(errorLoading);
       },
     }, {
+      onEnter: checkAuth(store),
       path: '/signup',
       name: 'signupPage',
       getComponent(location, cb) {
@@ -103,6 +159,7 @@ export default function createRoutes(store) {
           .catch(errorLoading);
       },
     }, {
+      onEnter: checkAuth(store),
       path: '/add',
       name: 'addPage',
       getComponent(location, cb) {

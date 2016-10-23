@@ -10,12 +10,32 @@
  */
 
 import React from 'react';
+import { connect } from 'react-redux';
 import messages from './messages';
 import Page from '../../components/Page';
+import { loginRequest } from '../auth/actions';
+import selectLogin from '../auth/selectors';
 
-export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
-
+export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
-    return (<Page messages={messages} />);
+    return (<Page messages={messages} >
+      <button onClick={this.props.login}>Login</button>
+    </Page>);
   }
+
 }
+
+const mapStateToProps = selectLogin();
+
+function mapDispatchToProps(dispatch) {
+  return {
+    login: () => {
+      const username = '';
+      const password = '';
+      dispatch(loginRequest({ username, password }));
+    },
+    dispatch,
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

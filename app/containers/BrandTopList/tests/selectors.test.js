@@ -1,10 +1,10 @@
-// import { selectPlayerTopListDomain } from '../selectors';
+// import { selectBrandTopListDomain } from '../selectors';
 // import { fromJS } from 'immutable';
 import expect from 'expect';
 
-// const selector = selectPlayerTopListDomain();
+// const selector = selectBrandTopListDomain();
 
-describe('selectPlayerTopListDomain', () => {
+describe('selectBrandTopListDomain', () => {
   it('Expect to have unit tests specified', () => {
     expect('Test case').toEqual(false);
   });
