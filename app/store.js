@@ -7,6 +7,7 @@ import { fromJS } from 'immutable';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import { addFormSubmitSagaTo } from 'redux-form-submit-saga/immutable';
+import authSagas from 'containers/auth/sagas';
 import createReducer from './reducers';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -34,8 +35,9 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // Create hook for async sagas
-  store.runSaga = (saga) => sagaMiddleware.run(addFormSubmitSagaTo(saga));
+  store.runSaga = (sagas) => sagaMiddleware.run(addFormSubmitSagaTo(sagas));
 
+  authSagas.map(store.runSaga);
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
   if (module.hot) {

@@ -16,6 +16,6 @@ import Page from '../../components/Page';
 export default class AboutPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    return (<Page messages={messages} />);
+    return (<Page messages={messages} isAddAllowed />);
   }
 }

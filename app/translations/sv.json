@@ -105,6 +105,11 @@
     "message": "Visa lösenord"
   },
   {
+    "id": "app.components.LoginPage.signup",
+    "defaultMessage": "Sign up",
+    "message": "Registera dig här!"
+  },
+  {
     "id": "app.components.LoginPage.submitForm",
     "defaultMessage": "Log in",
     "message": "Logga in"
@@ -113,6 +118,16 @@
     "id": "app.components.LoginPage.title",
     "defaultMessage": "JulmustRacet Login",
     "message": "JulmustRacet - Logga in"
+  },
+  {
+    "id": "app.components.Menu.login",
+    "defaultMessage": "Login",
+    "message": "Logga in"
+  },
+  {
+    "id": "app.components.Menu.logout",
+    "defaultMessage": "Logout",
+    "message": "Logga ut"
   },
   {
     "id": "app.components.NotFoundPage.description",

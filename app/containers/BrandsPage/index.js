@@ -17,7 +17,7 @@ import BrandTopList from '../BrandTopList';
 export default class BrandsPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    return (<Page messages={messages}>
+    return (<Page messages={messages} isAddAllowed>
       <BrandTopList />
     </Page>);
   }

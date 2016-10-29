@@ -105,6 +105,11 @@
     "message": ""
   },
   {
+    "id": "app.components.LoginPage.signup",
+    "defaultMessage": "Sign up",
+    "message": ""
+  },
+  {
     "id": "app.components.LoginPage.submitForm",
     "defaultMessage": "Log in",
     "message": ""
@@ -112,6 +117,16 @@
   {
     "id": "app.components.LoginPage.title",
     "defaultMessage": "JulmustRacet Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.Menu.login",
+    "defaultMessage": "Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.Menu.logout",
+    "defaultMessage": "Logout",
     "message": ""
   },
   {

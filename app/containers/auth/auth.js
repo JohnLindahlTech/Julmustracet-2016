@@ -35,7 +35,12 @@ const auth = {
   * Logs the current user out
   */
   logout() {
-    return post(LOGOUT_URL);
+    return post(LOGOUT_URL)
+    .catch((err) => err) // TODO consider handling this error.
+    .then(() => {
+      console.log('Removing LS token');
+      localStorage.removeItem('token');
+    });
   },
   /**
   * Checks if a user is logged in

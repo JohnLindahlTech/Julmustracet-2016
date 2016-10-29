@@ -18,9 +18,10 @@ import { TextField, Toggle } from 'redux-form-material-ui';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { loginRequest } from '../auth/actions';
-import Page from '../../components/Page';
+import Page from 'components/Page';
+import { Link } from 'react-router';
+import { red900, red200, fullWhite } from 'material-ui/styles/colors';
 
-import styles from './styles.css';
 
 import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
 
@@ -30,8 +31,13 @@ function renderError(error) {
       status,
     },
   } = error;
+  const styles = {
+    loginError: {
+      color: red900,
+    },
+  };
   const message = messages[status] || messages[500];
-  return (<strong className={styles['login-error']}><FormattedMessage {...message} /></strong>);
+  return (<strong style={styles.loginError}><FormattedMessage {...message} /></strong>);
 }
 
 class LoginPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
@@ -59,6 +65,15 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
       showPassword,
       error,
     } = this.props;
+    const styles = {
+      thumbSwitched: {
+        backgroundColor: red900,
+      },
+      trackSwitched: {
+        backgroundColor: red200,
+      },
+
+    };
     return (
       <Page messages={messages}>
         <form onSubmit={handleSubmit} noValidate>
@@ -70,11 +85,19 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
             <Field name="password" component={TextField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
           </div>
           <div>
-            <Field name="showPassword" component={Toggle} label={formatMessage(messages.showPassword)} labelPosition="right" />
+            <Field
+              name="showPassword"
+              component={Toggle}
+              label={formatMessage(messages.showPassword)}
+              labelPosition="right"
+              thumbSwitchedStyle={styles.thumbSwitched}
+              trackSwitchedStyle={styles.trackSwitched}
+            />
           </div>
           <div>
-            <RaisedButton type="submit" primary disabled={pristine || submitting} label={formatMessage(messages.submitForm)} />
+            <RaisedButton backgroundColor={red900} type="submit" labelColor={fullWhite} disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
           </div>
+          <Link to="/signup"><FormattedMessage {...messages.signup} /></Link>
         </form>
       </Page>
     );

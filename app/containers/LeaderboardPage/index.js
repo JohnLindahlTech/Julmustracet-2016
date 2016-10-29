@@ -17,7 +17,7 @@ import PlayerTopList from '../PlayerTopList';
 export default class LeaderboardPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    return (<Page messages={messages}>
+    return (<Page messages={messages} isAddAllowed>
       <PlayerTopList />
     </Page>);
   }

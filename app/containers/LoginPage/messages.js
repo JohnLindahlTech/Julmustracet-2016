@@ -10,6 +10,10 @@ export default defineMessages({
     id: 'app.components.LoginPage.header',
     defaultMessage: 'Login',
   },
+  signup: {
+    id: 'app.components.LoginPage.signup',
+    defaultMessage: 'Sign up',
+  },
   title: {
     id: 'app.components.LoginPage.title',
     defaultMessage: 'JulmustRacet Login',

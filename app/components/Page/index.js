@@ -14,6 +14,8 @@ import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
 import Menu from '../../components/Menu';
 
+import styles from './styles.css';
+
 class Page extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
@@ -26,17 +28,18 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
         description,
         header,
       },
+      isAddAllowed,
       children,
      } = this.props;
     return (
-      <div>
+      <div className={styles.page}>
         <Helmet
           title={formatMessage(title)}
           meta={[
             { name: 'description', content: formatMessage(description) },
           ]}
         />
-        <Menu title={<FormattedMessage {...header} />}></Menu>
+        <Menu isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />}></Menu>
         { children }
       </div>
     );
@@ -47,6 +50,7 @@ Page.propTypes = {
   intl: intlShape.isRequired,
   messages: PropTypes.object,
   children: PropTypes.node,
+  isAddAllowed: PropTypes.bool,
 };
 
 export default injectIntl(Page);

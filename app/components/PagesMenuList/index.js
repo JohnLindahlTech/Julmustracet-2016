@@ -47,10 +47,6 @@ PagesMenuList.defaultProps = {
     { to: '/leaderboard', children: <FormattedMessage {...messages.leaderboard} /> },
     { to: '/brands', children: <FormattedMessage {...messages.brands} /> },
     { to: '/about', children: <FormattedMessage {...messages.about} /> },
-    { to: '/login', children: <FormattedMessage {...messages.login} /> },
-    { to: '/signup', children: <FormattedMessage {...messages.signup} /> },
-    { to: '/add', children: <FormattedMessage {...messages.add} /> },
-    { to: '/BROKEN', children: 'BROKEN!' },
   ],
 };
 export default PagesMenuList;
