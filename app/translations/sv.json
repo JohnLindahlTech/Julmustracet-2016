@@ -70,6 +70,16 @@
     "message": "JulmustRacet 2016"
   },
   {
+    "id": "app.components.LoginPage.401",
+    "defaultMessage": "Invalid credentials",
+    "message": "Ogiltiga inloggningsuppgifter"
+  },
+  {
+    "id": "app.components.LoginPage.500",
+    "defaultMessage": "Something went wrong.",
+    "message": "Något gick snett."
+  },
+  {
     "id": "app.components.LoginPage.description",
     "defaultMessage": "Login to be able to add more Must on JulmustRacet.",
     "message": "Logga in till JulmustRacet 2016 för att kunna registera must."
