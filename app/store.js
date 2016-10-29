@@ -6,6 +6,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { fromJS } from 'immutable';
 import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
+import { addFormSubmitSagaTo } from 'redux-form-submit-saga/immutable';
 import createReducer from './reducers';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,6 +16,7 @@ export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
+  // 3. addFormSubmitSagaTo: Handles redux-form submitions.
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
@@ -32,7 +34,7 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // Create hook for async sagas
-  store.runSaga = sagaMiddleware.run;
+  store.runSaga = (saga) => sagaMiddleware.run(addFormSubmitSagaTo(saga));
 
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */

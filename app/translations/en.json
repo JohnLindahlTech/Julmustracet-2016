@@ -75,8 +75,28 @@
     "message": ""
   },
   {
+    "id": "app.components.LoginPage.email",
+    "defaultMessage": "Email",
+    "message": ""
+  },
+  {
     "id": "app.components.LoginPage.header",
     "defaultMessage": "Login",
+    "message": ""
+  },
+  {
+    "id": "app.components.LoginPage.password",
+    "defaultMessage": "Password",
+    "message": ""
+  },
+  {
+    "id": "app.components.LoginPage.showPassword",
+    "defaultMessage": "Show Password",
+    "message": ""
+  },
+  {
+    "id": "app.components.LoginPage.submitForm",
+    "defaultMessage": "Log in",
     "message": ""
   },
   {

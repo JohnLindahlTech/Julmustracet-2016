@@ -233,6 +233,7 @@
     "redux": "3.6.0",
     "redux-form": "^6.1.0",
     "redux-form-material-ui": "^4.1.0",
+    "redux-form-submit-saga": "^1.1.0",
     "redux-immutable": "3.0.8",
     "redux-saga": "0.11.1",
     "reselect": "2.5.4",

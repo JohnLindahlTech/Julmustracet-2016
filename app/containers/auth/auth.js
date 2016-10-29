@@ -17,14 +17,14 @@ if (global.process && process.env.NODE_ENV === 'test') {
 const auth = {
   /**
   * Logs a user in, returning a promise with `true` when done
-  * @param  {string} username The username of the user
+  * @param  {string} email The email of the user
   * @param  {string} password The password of the user
   */
-  login(username, password) {
+  login(email, password) {
     if (auth.loggedIn()) return Promise.resolve(true);
 
     // Post a fake request
-    return post(LOGIN_URL, { username, password })
+    return post(LOGIN_URL, { email, password })
       .then((response) => {
         // Save token to local storage
         localStorage.token = response.data.id;
@@ -45,14 +45,14 @@ const auth = {
   },
   /**
   * Registers a user and then logs them in
-  * @param  {string} username The username of the user
+  * @param  {string} email The username of the user
   * @param  {string} password The password of the user
   */
-  register(username, password) {
+  register(email, password) {
     // Post a fake request
-    return post(REGISTER_URL, { username, password })
+    return post(REGISTER_URL, { email, password })
       // Log user in after registering
-      .then(() => auth.login(username, password));
+      .then(() => auth.login(email, password));
   },
   onChange() {},
   getToken() {

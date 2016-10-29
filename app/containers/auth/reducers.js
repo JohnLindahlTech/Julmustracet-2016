@@ -3,7 +3,6 @@
  */
 
 import {
-  CHANGE_FORM,
   SET_AUTH,
   SENDING_REQUEST,
   REQUEST_ERROR,
@@ -14,11 +13,6 @@ import { fromJS } from 'immutable';
 
 // The initial application state
 const initialState = fromJS({
-  formState: {
-    username: '',
-    password: '',
-  },
-  error: '',
   currentlySending: false,
   loggedIn: auth.loggedIn(),
 });
@@ -26,9 +20,6 @@ const initialState = fromJS({
 // Takes care of changing the application state
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case CHANGE_FORM:
-      return state
-        .set('formState', action.newFormState);
     case SET_AUTH:
       return state
         .set('loggedIn', action.newAuthState);
@@ -37,9 +28,9 @@ function reducer(state = initialState, action) {
         .set('currentlySending', action.sending);
     case REQUEST_ERROR:
       return state
-        .set('error', action.error);
+        .set('error', action.payload);
     case CLEAR_ERROR:
-      return state.set('error', '');
+      return state.delete('error');
     default:
       return state;
   }

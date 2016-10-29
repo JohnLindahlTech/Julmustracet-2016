@@ -75,8 +75,28 @@
     "message": "Logga in till JulmustRacet 2016 för att kunna registera must."
   },
   {
+    "id": "app.components.LoginPage.email",
+    "defaultMessage": "Email",
+    "message": "Epost"
+  },
+  {
     "id": "app.components.LoginPage.header",
     "defaultMessage": "Login",
+    "message": "Logga in"
+  },
+  {
+    "id": "app.components.LoginPage.password",
+    "defaultMessage": "Password",
+    "message": "Lösenord"
+  },
+  {
+    "id": "app.components.LoginPage.showPassword",
+    "defaultMessage": "Show Password",
+    "message": "Visa lösenord"
+  },
+  {
+    "id": "app.components.LoginPage.submitForm",
+    "defaultMessage": "Log in",
     "message": "Logga in"
   },
   {
