@@ -14,29 +14,25 @@ import messages from './messages';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm, formValueSelector } from 'redux-form/immutable';
-import { TextField, Toggle } from 'redux-form-material-ui';
+import { Toggle } from 'redux-form-material-ui';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { loginRequest } from '../auth/actions';
 import Page from 'components/Page';
 import { Link } from 'react-router';
 import { red900, red200, fullWhite } from 'material-ui/styles/colors';
+import TranslatedValidationField from 'components/TranslatedValidationField';
 
 
 import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
 
 function renderError(error) {
-  const {
-    response: {
-      status,
-    },
-  } = error;
   const styles = {
     loginError: {
       color: red900,
     },
   };
-  const message = messages[status] || messages[500];
+  const message = messages[error] || messages[500];
   return (<strong style={styles.loginError}><FormattedMessage {...message} /></strong>);
 }
 
@@ -47,7 +43,7 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
     pristine: PropTypes.bool,
     submitting: PropTypes.bool,
     showPassword: PropTypes.bool,
-    error: PropTypes.object,
+    error: PropTypes.string,
   };
 
   static defaultProps = {
@@ -79,10 +75,10 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
         <form onSubmit={handleSubmit} noValidate>
           {error && renderError(error)}
           <div>
-            <Field name="email" component={TextField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
+            <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
           </div>
           <div>
-            <Field name="password" component={TextField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
+            <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
           </div>
           <div>
             <Field
@@ -110,11 +106,11 @@ function validate(values) {
   const requiredFields = ['email', 'password'];
   requiredFields.forEach((field) => {
     if (!normalValues[field]) {
-      errors[field] = 'Required';
+      errors[field] = 'presence';
     }
   });
   if (normalValues.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(normalValues.email)) {
-    errors.email = 'Invalid email address';
+    errors.email = 'custom.email';
   }
   return errors;
 }

@@ -180,13 +180,18 @@
     "message": ""
   },
   {
-    "id": "app.components.SignupPage.description",
-    "defaultMessage": "Signup for JulmustRacet.",
+    "id": "app.components.SignupPage.422",
+    "defaultMessage": "Invalid form",
     "message": ""
   },
   {
-    "id": "app.components.SignupPage.displayName",
-    "defaultMessage": "Display Name",
+    "id": "app.components.SignupPage.500",
+    "defaultMessage": "Something went wrong.",
+    "message": ""
+  },
+  {
+    "id": "app.components.SignupPage.description",
+    "defaultMessage": "Signup for JulmustRacet.",
     "message": ""
   },
   {
@@ -235,6 +240,11 @@
     "message": ""
   },
   {
+    "id": "app.components.SignupPage.username",
+    "defaultMessage": "Username",
+    "message": ""
+  },
+  {
     "id": "app.components.TopList.daily",
     "defaultMessage": "Must/day",
     "message": ""
@@ -262,6 +272,31 @@
   {
     "id": "app.components.TopList.username",
     "defaultMessage": "Username",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationField.custom.email",
+    "defaultMessage": "Must be a valid email",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationField.default.error",
+    "defaultMessage": "Invalid",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationField.presence",
+    "defaultMessage": "Required field",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationField.too_short",
+    "defaultMessage": "Too short",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationField.uniqueness",
+    "defaultMessage": "Already taken",
     "message": ""
   },
   {

@@ -51,7 +51,6 @@ class JulMenu extends React.Component {
       doLogout,
       isAddAllowed,
     } = this.props;
-    console.log(isAddAllowed);
     return (
       <nav>
         <AppBar
@@ -71,7 +70,7 @@ function renderAddButton() {
     <FloatingActionButton
       backgroundColor={red900}
       className={styles['add-button']}
-      containerElement={<Link to="/add" />}
+      containerElement={<Link to="/add" />} // eslint-disable-line jsx-a11y/anchor-has-content
     >
       <ContentAdd />
     </FloatingActionButton>
@@ -79,7 +78,10 @@ function renderAddButton() {
 }
 
 function renderLogin() {
-  return (<FlatButton containerElement={<Link to="/login" />} label={<FormattedMessage {...messages.login} />} />);
+  return (<FlatButton
+    containerElement={<Link to="/login" />} // eslint-disable-line jsx-a11y/anchor-has-content
+    label={<FormattedMessage {...messages.login} />}
+  />);
 }
 
 function renderLogout(doLogout) {

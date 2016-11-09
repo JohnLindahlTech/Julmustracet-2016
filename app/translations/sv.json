@@ -180,14 +180,19 @@
     "message": "Skapa konto"
   },
   {
+    "id": "app.components.SignupPage.422",
+    "defaultMessage": "Invalid form",
+    "message": "Problem med formuläret"
+  },
+  {
+    "id": "app.components.SignupPage.500",
+    "defaultMessage": "Something went wrong.",
+    "message": "Någonting gick fruktansvärt galet."
+  },
+  {
     "id": "app.components.SignupPage.description",
     "defaultMessage": "Signup for JulmustRacet.",
     "message": "Skapa en konto för JulmustRacet 2016."
-  },
-  {
-    "id": "app.components.SignupPage.displayName",
-    "defaultMessage": "Display Name",
-    "message": "Användarnamn"
   },
   {
     "id": "app.components.SignupPage.email",
@@ -212,7 +217,7 @@
   {
     "id": "app.components.SignupPage.password",
     "defaultMessage": "Password",
-    "message": "Lösneord"
+    "message": "Lösenord"
   },
   {
     "id": "app.components.SignupPage.resetForm",
@@ -233,6 +238,11 @@
     "id": "app.components.SignupPage.title",
     "defaultMessage": "JulmustRacet Signup",
     "message": "JulmustRacet - Skapa konto"
+  },
+  {
+    "id": "app.components.SignupPage.username",
+    "defaultMessage": "Username",
+    "message": "Användarnamn"
   },
   {
     "id": "app.components.TopList.daily",
@@ -263,6 +273,31 @@
     "id": "app.components.TopList.username",
     "defaultMessage": "Username",
     "message": "Användarnamn"
+  },
+  {
+    "id": "app.components.TranslatedValidationField.custom.email",
+    "defaultMessage": "Must be a valid email",
+    "message": "Måste vara en giltig epostadress."
+  },
+  {
+    "id": "app.components.TranslatedValidationField.default.error",
+    "defaultMessage": "Invalid",
+    "message": "Ogiltigt fält"
+  },
+  {
+    "id": "app.components.TranslatedValidationField.presence",
+    "defaultMessage": "Required field",
+    "message": "Obligatoriskt fält"
+  },
+  {
+    "id": "app.components.TranslatedValidationField.too_short",
+    "defaultMessage": "Too short",
+    "message": "För kort"
+  },
+  {
+    "id": "app.components.TranslatedValidationField.uniqueness",
+    "defaultMessage": "Already taken",
+    "message": "Redan upptagen"
   },
   {
     "id": "app.containers.BrandTopList.header",

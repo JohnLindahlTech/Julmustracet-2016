@@ -25,7 +25,7 @@ import {
  * @param  {object} options                Options
  * @param  {boolean} options.isRegistering Is this a register request?
  */
-export function* authorize({ email, password, isRegistering }) {
+export function* authorize({ email, password, username, isRegistering }) {
   // We send an action that tells Redux we're sending a request
   yield put({ type: SENDING_REQUEST, sending: true });
 
@@ -38,21 +38,36 @@ export function* authorize({ email, password, isRegistering }) {
     // as if it's synchronous because we pause execution until the call is done
     // with `yield`!
     if (isRegistering) {
-      response = yield call(auth.register, email, password);
+      response = yield call(auth.register, email, password, username);
     } else {
-      response = yield call(auth.login, email, password);
+      response = yield call(auth.login, email, password, username);
     }
 
     return response;
   } catch (error) {
+    const payload = yield call(transformError, error);
     // If we get an error we send Redux the appropiate action and return
-    yield put({ type: REQUEST_ERROR, payload: { _error: error } });
+    yield put({ type: REQUEST_ERROR, payload });
 
     return false;
   } finally {
     // When done, we tell Redux we're not in the middle of a request any more
     yield put({ type: SENDING_REQUEST, sending: false });
   }
+}
+
+function transformError(err) {
+  if (!err.response) {
+    return Promise.resolve({ _error: '500' });
+  }
+  return err.response.json().then(({ error }) => {
+    const fieldErrors = !(error.details && error.details.codes) ? {} : objectMap(error.details.codes, (field) => field[0]);
+    return Object.assign({ _error: `${error.statusCode}` }, fieldErrors);
+  });
+}
+
+function objectMap(object, fn) {
+  return Object.keys(object).reduce((result, key) => Object.assign(result, { [key]: fn(object[key]) }), {});
 }
 
 /**
@@ -133,11 +148,13 @@ export function* registerFlow() {
   while (true) {
     // We always listen to `REGISTER_REQUEST` actions
     const request = yield take(REGISTER_REQUEST);
-    const { email, password } = request.data;
+    const email = request.data.get('email');
+    const password = request.data.get('password');
+    const username = request.data.get('username');
 
     // We call the `authorize` task with the data, telling it that we are registering a user
     // This returns `true` if the registering was successful, `false` if not
-    const wasSuccessful = yield call(authorize, { email, password, isRegistering: true });
+    const wasSuccessful = yield call(authorize, { email, password, username, isRegistering: true });
 
     // If we could register a user, we send the appropiate actions
     if (wasSuccessful) {

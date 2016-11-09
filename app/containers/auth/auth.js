@@ -20,11 +20,11 @@ const auth = {
   * @param  {string} email The email of the user
   * @param  {string} password The password of the user
   */
-  login(email, password) {
+  login(email, password, username) {
     if (auth.loggedIn()) return Promise.resolve(true);
 
     // Post a fake request
-    return post(LOGIN_URL, { email, password })
+    return post(LOGIN_URL, { email, password, username })
       .then((response) => {
         // Save token to local storage
         localStorage.token = response.data.id;
@@ -53,9 +53,9 @@ const auth = {
   * @param  {string} email The username of the user
   * @param  {string} password The password of the user
   */
-  register(email, password) {
+  register(email, password, username) {
     // Post a fake request
-    return post(REGISTER_URL, { email, password })
+    return post(REGISTER_URL, { email, password, username })
       // Log user in after registering
       .then(() => auth.login(email, password));
   },

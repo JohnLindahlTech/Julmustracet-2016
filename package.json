@@ -4,12 +4,12 @@
   "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mxstbr/react-boilerplate.git"
+    "url": "git@github.com:JohnPhoto/Julmustracet-2016.git"
   },
   "engines": {
     "npm": ">=3"
   },
-  "author": "Max Stoiber",
+  "author": "John Bäckström <john@johnphoto.se>",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",

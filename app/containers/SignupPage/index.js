@@ -16,8 +16,23 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { Field, reduxForm, formValueSelector } from 'redux-form/immutable';
-import { TextField, Toggle } from 'redux-form-material-ui';
-import { injectIntl, intlShape } from 'react-intl';
+import { onSubmitActions } from 'redux-form-submit-saga/immutable';
+import { Toggle } from 'redux-form-material-ui';
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import { red900 } from 'material-ui/styles/colors';
+import { registerRequest } from '../auth/actions';
+import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
+import TranslatedValidationField from 'components/TranslatedValidationField';
+
+function renderError(error) {
+  const styles = {
+    loginError: {
+      color: red900,
+    },
+  };
+  const message = messages[error] || messages[500];
+  return (<strong style={styles.loginError}><FormattedMessage {...message} /></strong>);
+}
 
 class SignupPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -27,6 +42,7 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
     submitting: PropTypes.bool,
     showPassword: PropTypes.bool,
     reset: PropTypes.func,
+    error: PropTypes.string,
   };
 
   static defaultProps = {
@@ -43,24 +59,20 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
       reset,
       submitting,
       showPassword,
+      error,
     } = this.props;
     return (
       <Page messages={messages}>
         <form onSubmit={handleSubmit} noValidate>
+          {error && renderError(error)}
           <div>
-            <Field name="firstName" component={TextField} type="text" hintText="John" floatingLabelText={formatMessage(messages.firstName)} />
+            <Field name="username" component={TranslatedValidationField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.username)} />
           </div>
           <div>
-            <Field name="lastName" component={TextField} type="text" hintText="Doe" floatingLabelText={formatMessage(messages.lastName)} />
+            <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
           </div>
           <div>
-            <Field name="displayName" component={TextField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.displayName)} />
-          </div>
-          <div>
-            <Field name="email" component={TextField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
-          </div>
-          <div>
-            <Field name="password" component={TextField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
+            <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
           </div>
           <div>
             <Field name="showPassword" component={Toggle} label={formatMessage(messages.showPassword)} labelPosition="right" />
@@ -82,17 +94,17 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
 function validate(values) {
   const normalValues = values.toJS();
   const errors = {};
-  const requiredFields = ['firstName', 'lastName', 'displayName', 'email', 'password'];
+  const requiredFields = ['username', 'email', 'password'];
   requiredFields.forEach((field) => {
     if (!normalValues[field]) {
-      errors[field] = 'Required';
+      errors[field] = 'presence';
     }
   });
   if (normalValues.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(normalValues.email)) {
-    errors.email = 'Invalid email address';
+    errors.email = 'custom.email';
   }
   if (normalValues.password && normalValues.password.length < 6) {
-    errors.password = 'Must be atleast 6 letters long.';
+    errors.password = 'too_short';
   }
   return errors;
 }
@@ -102,6 +114,7 @@ const TranslatedSignupPage = injectIntl(SignupPage);
 const SignupFormPage = reduxForm({
   form: 'registerUser',
   validate,
+  onSubmit: onSubmitActions(registerRequest, SET_AUTH, REQUEST_ERROR),
 })(TranslatedSignupPage);
 
 const selector = formValueSelector('registerUser');

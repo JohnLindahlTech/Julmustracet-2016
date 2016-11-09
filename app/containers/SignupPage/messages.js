@@ -26,9 +26,9 @@ export default defineMessages({
     id: 'app.components.SignupPage.lastName',
     defaultMessage: 'Last Name',
   },
-  displayName: {
-    id: 'app.components.SignupPage.displayName',
-    defaultMessage: 'Display Name',
+  username: {
+    id: 'app.components.SignupPage.username',
+    defaultMessage: 'Username',
   },
   email: {
     id: 'app.components.SignupPage.email',
@@ -49,5 +49,13 @@ export default defineMessages({
   submitForm: {
     id: 'app.components.SignupPage.submitForm',
     defaultMessage: 'Submit',
+  },
+  422: {
+    id: 'app.components.SignupPage.422',
+    defaultMessage: 'Invalid form',
+  },
+  500: {
+    id: 'app.components.LoginPage.500',
+    defaultMessage: 'Something went wrong.',
   },
 });
