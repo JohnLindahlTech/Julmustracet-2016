@@ -17,7 +17,7 @@ export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
-  // 3. addFormSubmitSagaTo: Handles redux-form submitions.
+  // 3. formSubmitSaga: Handles redux-form submitions.
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
@@ -35,9 +35,8 @@ export default function configureStore(initialState = {}, history) {
   );
 
   // Create hook for async sagas
-  store.runSaga = (sagas) => sagaMiddleware.run(addFormSubmitSagaTo(sagas));
-
-  authSagas.map(store.runSaga);
+  store.runSaga = (sagas) => sagaMiddleware.run(sagas);
+  sagaMiddleware.run(addFormSubmitSagaTo(authSagas));
   // Make reducers hot reloadable, see http://mxs.is/googmo
   /* istanbul ignore next */
   if (module.hot) {

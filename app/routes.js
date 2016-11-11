@@ -27,12 +27,6 @@ function checkAuth(store) {
     const loggedIn = state.getIn(['auth', 'loggedIn']);
 
     // store.dispatch(clearError());
-    const a = AUTH_PATHS.includes(nextState.location.pathname) ? 'Must be authorized.' : 'Must not be authorized.';
-    const b = loggedIn ? 'Is logged in.' : 'Is not logged in. ';
-    const c = nextState.location.state && nextState.location.pathname ? 'Next loc exists.' : 'No next loc.';
-
-    console.log(a, b, c);
-
     if (AUTH_PATHS.includes(nextState.location.pathname)) {
       if (loggedIn) {
         return;
@@ -157,11 +151,23 @@ export default function createRoutes(store) {
     }, {
       onEnter: checkAuth(store),
       path: '/add',
-      name: 'addPage',
-      getComponent(location, cb) {
-        System.import('containers/AddPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
+      name: 'addMustPage',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/AddMustPage/reducer'),
+          System.import('containers/AddMustPage/sagas'),
+          System.import('containers/AddMustPage'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('addMustPage', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
       },
     }, {
       path: '*',

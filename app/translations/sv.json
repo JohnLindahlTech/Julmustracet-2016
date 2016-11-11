@@ -15,17 +15,47 @@
     "message": "JulmustRacet - Om"
   },
   {
-    "id": "app.components.AddPage.description",
+    "id": "app.components.AddMustPage.amount",
+    "defaultMessage": "Amount",
+    "message": "Mängd (liter)"
+  },
+  {
+    "id": "app.components.AddMustPage.brand",
+    "defaultMessage": "Brand",
+    "message": "Märke"
+  },
+  {
+    "id": "app.components.AddMustPage.date",
+    "defaultMessage": "Date",
+    "message": "Datum"
+  },
+  {
+    "id": "app.components.AddMustPage.description",
     "defaultMessage": "Add must for JulmustRacet.",
     "message": "Registera drucken must till JulmustRacet."
   },
   {
-    "id": "app.components.AddPage.header",
+    "id": "app.components.AddMustPage.header",
     "defaultMessage": "Add",
     "message": "Lägg till must"
   },
   {
-    "id": "app.components.AddPage.title",
+    "id": "app.components.AddMustPage.resetForm",
+    "defaultMessage": "Reset",
+    "message": "Återställ"
+  },
+  {
+    "id": "app.components.AddMustPage.submitForm",
+    "defaultMessage": "Send",
+    "message": "Skicka"
+  },
+  {
+    "id": "app.components.AddMustPage.time",
+    "defaultMessage": "Time",
+    "message": "Tid"
+  },
+  {
+    "id": "app.components.AddMustPage.title",
     "defaultMessage": "JulmustRacet Add",
     "message": "JulmustRacet - Lägg till must"
   },
@@ -183,11 +213,6 @@
     "id": "app.components.SignupPage.422",
     "defaultMessage": "Invalid form",
     "message": "Problem med formuläret"
-  },
-  {
-    "id": "app.components.SignupPage.500",
-    "defaultMessage": "Something went wrong.",
-    "message": "Någonting gick fruktansvärt galet."
   },
   {
     "id": "app.components.SignupPage.description",

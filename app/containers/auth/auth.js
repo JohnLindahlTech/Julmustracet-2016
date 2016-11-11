@@ -38,8 +38,8 @@ const auth = {
     return post(LOGOUT_URL)
     .catch((err) => err) // TODO consider handling this error.
     .then(() => {
-      console.log('Removing LS token');
       localStorage.removeItem('token');
+      return Promise.resolve(true);
     });
   },
   /**

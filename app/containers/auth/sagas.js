@@ -87,6 +87,7 @@ export function* logout() {
     return response;
   } catch (error) {
     yield put({ type: REQUEST_ERROR, error: error.message });
+    return false;
   }
 }
 
@@ -174,9 +175,7 @@ export function* root() {
   yield fork(registerFlow);
 }
 
-export default [
-  root,
-];
+export default root;
 
 
 // Little helper function to abstract going to different pages

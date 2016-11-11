@@ -15,17 +15,47 @@
     "message": ""
   },
   {
-    "id": "app.components.AddPage.description",
+    "id": "app.components.AddMustPage.amount",
+    "defaultMessage": "Amount",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.brand",
+    "defaultMessage": "Brand",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.date",
+    "defaultMessage": "Date",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.description",
     "defaultMessage": "Add must for JulmustRacet.",
     "message": ""
   },
   {
-    "id": "app.components.AddPage.header",
+    "id": "app.components.AddMustPage.header",
     "defaultMessage": "Add",
     "message": ""
   },
   {
-    "id": "app.components.AddPage.title",
+    "id": "app.components.AddMustPage.resetForm",
+    "defaultMessage": "Reset",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.submitForm",
+    "defaultMessage": "Send",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.time",
+    "defaultMessage": "Time",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.title",
     "defaultMessage": "JulmustRacet Add",
     "message": ""
   },
@@ -182,11 +212,6 @@
   {
     "id": "app.components.SignupPage.422",
     "defaultMessage": "Invalid form",
-    "message": ""
-  },
-  {
-    "id": "app.components.SignupPage.500",
-    "defaultMessage": "Something went wrong.",
     "message": ""
   },
   {
