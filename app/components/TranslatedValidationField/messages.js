@@ -4,26 +4,43 @@
  * This contains all the text for the TranslatedValidationField component.
  */
 import { defineMessages } from 'react-intl';
+export const ERRORS = {
+  REQUIRED: 'presence',
+  TOO_SHORT: 'too.short',
+  UNIQUE: 'uniqueness',
+  EMAIL: 'custom.email',
+  DEFAULT: 'error',
+  TOO_MUCH: 'too.much',
+  TOO_LITTLE: 'too.little',
+};
 
 export default defineMessages({
-  presence: {
+  [ERRORS.REQUIRED]: {
     id: 'app.components.TranslatedValidationField.presence',
     defaultMessage: 'Required field',
   },
-  too_short: {
+  [ERRORS.TOO_SHORT]: {
     id: 'app.components.TranslatedValidationField.too_short',
     defaultMessage: 'Too short',
   },
-  uniqueness: {
+  [ERRORS.UNIQUE]: {
     id: 'app.components.TranslatedValidationField.uniqueness',
     defaultMessage: 'Already taken',
   },
-  'custom.email': {
+  [ERRORS.EMAIL]: {
     id: 'app.components.TranslatedValidationField.custom.email',
     defaultMessage: 'Must be a valid email',
   },
-  'default.error': {
+  [ERRORS.DEFAULT]: {
     id: 'app.components.TranslatedValidationField.default.error',
     defaultMessage: 'Invalid',
+  },
+  [ERRORS.TOO_MUCH]: {
+    id: 'app.components.TranslatedValidationFieldtoo.much',
+    defaultMessage: 'Too much',
+  },
+  [ERRORS.TOO_LITTLE]: {
+    id: 'app.components.TranslatedValidationField.too.little',
+    defaultMessage: 'Too little',
   },
 });

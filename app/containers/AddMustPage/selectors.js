@@ -19,7 +19,19 @@ const selectAddMustPage = () => createSelector(
   (substate) => substate.toJS()
 );
 
+const selectBrands = () => createSelector(
+  selectAddMustPageDomain(),
+  (substate) => substate.get('brands')
+);
+
+const selectRules = () => createSelector(
+  selectAddMustPageDomain(),
+  (substate) => substate.get('rules')
+);
+
 export default selectAddMustPage;
 export {
   selectAddMustPageDomain,
+  selectBrands,
+  selectRules,
 };

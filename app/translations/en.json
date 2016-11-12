@@ -25,6 +25,11 @@
     "message": ""
   },
   {
+    "id": "app.components.AddMustPage.cancel",
+    "defaultMessage": "Cancel",
+    "message": ""
+  },
+  {
     "id": "app.components.AddMustPage.date",
     "defaultMessage": "Date",
     "message": ""
@@ -37,6 +42,11 @@
   {
     "id": "app.components.AddMustPage.header",
     "defaultMessage": "Add",
+    "message": ""
+  },
+  {
+    "id": "app.components.AddMustPage.ok",
+    "defaultMessage": "Ok",
     "message": ""
   },
   {
@@ -300,6 +310,56 @@
     "message": ""
   },
   {
+    "id": "app.components.TranslatedAutoComplete.defaultError",
+    "defaultMessage": "Error",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedAutoComplete.presence",
+    "defaultMessage": "Required field",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.defaultError",
+    "defaultMessage": "Error",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.presence",
+    "defaultMessage": "Required field",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.tooEarly",
+    "defaultMessage": "Too early",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.tooLate",
+    "defaultMessage": "Too late",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.defaultError",
+    "defaultMessage": "Error",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.presence",
+    "defaultMessage": "Required field",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.tooEarly",
+    "defaultMessage": "Too early",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.tooLate",
+    "defaultMessage": "Too late",
+    "message": ""
+  },
+  {
     "id": "app.components.TranslatedValidationField.custom.email",
     "defaultMessage": "Must be a valid email",
     "message": ""
@@ -315,6 +375,11 @@
     "message": ""
   },
   {
+    "id": "app.components.TranslatedValidationField.too.little",
+    "defaultMessage": "Too little",
+    "message": ""
+  },
+  {
     "id": "app.components.TranslatedValidationField.too_short",
     "defaultMessage": "Too short",
     "message": ""
@@ -322,6 +387,11 @@
   {
     "id": "app.components.TranslatedValidationField.uniqueness",
     "defaultMessage": "Already taken",
+    "message": ""
+  },
+  {
+    "id": "app.components.TranslatedValidationFieldtoo.much",
+    "defaultMessage": "Too much",
     "message": ""
   },
   {

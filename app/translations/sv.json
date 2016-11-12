@@ -25,6 +25,11 @@
     "message": "Märke"
   },
   {
+    "id": "app.components.AddMustPage.cancel",
+    "defaultMessage": "Cancel",
+    "message": "Avbryt"
+  },
+  {
     "id": "app.components.AddMustPage.date",
     "defaultMessage": "Date",
     "message": "Datum"
@@ -38,6 +43,11 @@
     "id": "app.components.AddMustPage.header",
     "defaultMessage": "Add",
     "message": "Lägg till must"
+  },
+  {
+    "id": "app.components.AddMustPage.ok",
+    "defaultMessage": "Ok",
+    "message": "Ok"
   },
   {
     "id": "app.components.AddMustPage.resetForm",
@@ -300,6 +310,56 @@
     "message": "Användarnamn"
   },
   {
+    "id": "app.components.TranslatedAutoComplete.defaultError",
+    "defaultMessage": "Error",
+    "message": "Error"
+  },
+  {
+    "id": "app.components.TranslatedAutoComplete.presence",
+    "defaultMessage": "Required field",
+    "message": "Obligatorisk"
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.defaultError",
+    "defaultMessage": "Error",
+    "message": "Error"
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.presence",
+    "defaultMessage": "Required field",
+    "message": "Obligatorisk"
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.tooEarly",
+    "defaultMessage": "Too early",
+    "message": "För tidigt"
+  },
+  {
+    "id": "app.components.TranslatedDatePicker.tooLate",
+    "defaultMessage": "Too late",
+    "message": "För sent"
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.defaultError",
+    "defaultMessage": "Error",
+    "message": "Error"
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.presence",
+    "defaultMessage": "Required field",
+    "message": "Obligatorisk"
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.tooEarly",
+    "defaultMessage": "Too early",
+    "message": "För tidigt"
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.tooLate",
+    "defaultMessage": "Too late",
+    "message": "För sent"
+  },
+  {
     "id": "app.components.TranslatedValidationField.custom.email",
     "defaultMessage": "Must be a valid email",
     "message": "Måste vara en giltig epostadress."
@@ -307,12 +367,17 @@
   {
     "id": "app.components.TranslatedValidationField.default.error",
     "defaultMessage": "Invalid",
-    "message": "Ogiltigt fält"
+    "message": "Ogiltigt"
   },
   {
     "id": "app.components.TranslatedValidationField.presence",
     "defaultMessage": "Required field",
-    "message": "Obligatoriskt fält"
+    "message": "Obligatorisk"
+  },
+  {
+    "id": "app.components.TranslatedValidationField.too.little",
+    "defaultMessage": "Too little",
+    "message": "För lite"
   },
   {
     "id": "app.components.TranslatedValidationField.too_short",
@@ -323,6 +388,11 @@
     "id": "app.components.TranslatedValidationField.uniqueness",
     "defaultMessage": "Already taken",
     "message": "Redan upptagen"
+  },
+  {
+    "id": "app.components.TranslatedValidationFieldtoo.much",
+    "defaultMessage": "Too much",
+    "message": "För mycket"
   },
   {
     "id": "app.containers.BrandTopList.header",

@@ -10,8 +10,8 @@
  */
 
 import React, { PropTypes } from 'react';
-import messages from './messages';
-import Page from '../../components/Page';
+
+import Page from 'components/Page';
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
@@ -20,9 +20,11 @@ import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { Toggle } from 'redux-form-material-ui';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import { red900 } from 'material-ui/styles/colors';
+import TranslatedValidationField, { ERRORS } from 'components/TranslatedValidationField';
 import { registerRequest } from '../auth/actions';
 import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
-import TranslatedValidationField from 'components/TranslatedValidationField';
+import messages from './messages';
+
 
 function renderError(error) {
   const styles = {
@@ -97,14 +99,14 @@ function validate(values) {
   const requiredFields = ['username', 'email', 'password'];
   requiredFields.forEach((field) => {
     if (!normalValues[field]) {
-      errors[field] = 'presence';
+      errors[field] = ERRORS.REQUIRED;
     }
   });
   if (normalValues.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(normalValues.email)) {
-    errors.email = 'custom.email';
+    errors.email = ERRORS.EMAIL;
   }
   if (normalValues.password && normalValues.password.length < 6) {
-    errors.password = 'too_short';
+    errors.password = ERRORS.TOO_SHORT;
   }
   return errors;
 }

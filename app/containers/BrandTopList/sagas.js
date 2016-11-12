@@ -1,11 +1,12 @@
 import { take, call, put, fork, cancel } from 'redux-saga/effects';
-import request from '../../utils/request';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import request from '../../utils/request';
 import { LOAD_BRANDS } from './constants';
 import { brandsLoaded, brandsLoadingError } from './actions';
 
+const url = 'http://localhost:3000/api/Brands';
+
 export function* getBrands() {
-  const url = 'http://localhost:3000/api/Brands';
   const brands = yield call(request, url);
   if (!brands.error) {
     yield put(brandsLoaded(brands.data));

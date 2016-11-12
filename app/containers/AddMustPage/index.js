@@ -11,18 +11,24 @@ import { FormattedMessage } from 'react-intl';
 import { Field, reduxForm } from 'redux-form/immutable';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
-import { TextField, AutoComplete } from 'redux-form-material-ui';
-import DatePicker from 'material-ui/DatePicker';
-import TimePicker from 'material-ui/TimePicker';
+import { AutoComplete } from 'redux-form-material-ui';
 import { onSubmitActions } from 'redux-form-submit-saga/immutable';
-import { ADD_MUST } from './constants';
-import messages from './messages';
-import selectAddMustPage from './selectors';
-import styles from './styles.css';
-import Page from '../../components/Page';
-
+import { fromJS } from 'immutable';
+import Page from 'components/Page';
+import TranslatedAutoComplete from 'components/TranslatedAutoComplete';
+import TranslatedDatePicker, { ERRORS as DATE_ERRORS } from 'components/TranslatedDatePicker';
+import TranslatedTimePicker from 'components/TranslatedTimePicker';
+import TranslatedValidationField, { ERRORS as TEXT_ERRORS } from 'components/TranslatedValidationField';
+import { red900 } from 'material-ui/styles/colors';
+import { getEarliestDate, ensureTime, combineDateTime } from 'utils/time';
 
 import areIntlLocalesSupported from 'intl-locales-supported';
+
+import { ADD_MUST } from './constants';
+import { loadBrands, loadRules } from './actions';
+import messages from './messages';
+import selectAddMustPage from './selectors';
+
 
 let DateTimeFormat;
 
@@ -32,11 +38,22 @@ let DateTimeFormat;
 if (areIntlLocalesSupported(['sv', 'sv-SE'])) {
   DateTimeFormat = global.Intl.DateTimeFormat;
 } else {
-  const IntlPolyfill = require('intl');
+  const IntlPolyfill = require('intl'); // eslint-disable-line global-require
   DateTimeFormat = IntlPolyfill.DateTimeFormat;
-  require('intl/locale-data/jsonp/sv');
-  require('intl/locale-data/jsonp/sv-SE');
+  require('intl/locale-data/jsonp/sv'); // eslint-disable-line global-require
+  require('intl/locale-data/jsonp/sv-SE'); // eslint-disable-line global-require
 }
+
+function renderError(error) {
+  const styles = {
+    loginError: {
+      color: red900,
+    },
+  };
+  const message = messages[error] || messages[500];
+  return (<strong style={styles.loginError}><FormattedMessage {...message} /></strong>);
+}
+
 
 export class AddMustPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   static propTypes = {
@@ -45,16 +62,28 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
     submitting: PropTypes.bool,
     reset: PropTypes.func,
     brands: PropTypes.array,
-    minDate: PropTypes.object,
-    maxDate: PropTypes.object,
+    rules: PropTypes.shape({
+      startDate: PropTypes.object,
+      endDate: PropTypes.object,
+    }),
+    error: PropTypes.string,
     defaultDate: PropTypes.object,
+    getRules: PropTypes.func.isRequired,
+    getBrands: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
-    brands: [], // TODO Load actual data to brands, min date and max date.
-    minDate: new Date('2016-11-01'),
-    maxDate: new Date('2016-12-20'),
+    brands: [],
+    rules: {
+      startDate: new Date('2016-11-01'),
+      endDate: new Date('2016-12-20'),
+    },
     defaultDate: new Date(),
+  }
+
+  componentDidMount() {
+    this.props.getRules();
+    this.props.getBrands();
   }
 
   render() {
@@ -64,20 +93,27 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
       reset,
       submitting,
       brands,
-      minDate,
-      maxDate,
+      rules: {
+        startDate,
+        endDate,
+        minAmount,
+        maxAmount,
+      },
+      error,
       defaultDate,
     } = this.props;
+    const maxDate = getEarliestDate(new Date(), endDate);
     return (
       <Page messages={messages}>
         <form onSubmit={handleSubmit} noValidate>
+          {error && renderError(error)}
           <div>
             <Field
               name="brand"
               maxSearchResults={6}
               filter={AutoComplete.fuzzyFilter}
               dataSource={brands.map((brand) => (brand.name))}
-              component={AutoComplete}
+              component={TranslatedAutoComplete}
               hintText="Apotekarnes"
               floatingLabelText={<FormattedMessage {...messages.brand} />}
             />
@@ -85,8 +121,10 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
           <div>
             <Field
               name="amount"
-              component={TextField}
+              component={TranslatedValidationField}
               step={0.1}
+              min={minAmount}
+              max={maxAmount}
               type="number"
               hintText="0.33"
               floatingLabelText={<FormattedMessage {...messages.amount} />}
@@ -96,7 +134,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
             <Field
               name="date"
               disableYearSelection
-              component={renderDatePicker}
+              component={TranslatedDatePicker}
               hintText="Data"
               autoOk
               floatingLabelText={<FormattedMessage {...messages.date} />}
@@ -104,7 +142,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
               locale="sv-SE"
               okLabel={<FormattedMessage {...messages.ok} />}
               cancelLabel={<FormattedMessage {...messages.cancel} />}
-              minDate={minDate}
+              minDate={startDate}
               maxDate={maxDate}
               defaultDate={defaultDate}
             />
@@ -112,7 +150,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
           <div>
             <Field
               name="time"
-              component={renderTimePicker}
+              component={TranslatedTimePicker}
               hintText="Data"
               autoOk
               floatingLabelText={<FormattedMessage {...messages.time} />}
@@ -135,63 +173,70 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
   }
 }
 
-const renderTimePicker = ({ input, meta: { touched, error }, ...rest }) => (
-  <TimePicker
-    format="24hr"
-    errorText={touched && error}
-    {...input}
-    {...rest}
-    value={input.value !== '' ? input.value : null}
-    onChange={(event, value) => input.onChange(value)}
-  />
-);
-
-renderTimePicker.PropTypes = {
-  input: PropTypes.object,
-  meta: PropTypes.object,
-};
-
-const renderDatePicker = ({ input, meta: { touched, error }, ...rest }) => (
-  <DatePicker
-    errorText={touched && error}
-    {...input}
-    {...rest}
-    value={input.value !== '' ? new Date(input.value) : null}
-    onChange={(event, value) => input.onChange(value)}
-  />
-);
-
-renderDatePicker.PropTypes = {
-  input: PropTypes.object,
-  meta: PropTypes.object,
-};
-
-function validate(values) {
+function validate(values, props) {
+  const { rules } = props;
   const normalValues = values.toJS();
   const errors = {};
   const requiredFields = ['brand', 'amount', 'date', 'time'];
   requiredFields.forEach((field) => {
     if (!normalValues[field]) {
-      errors[field] = 'required';
+      errors[field] = TEXT_ERRORS.REQUIRED;
     }
   });
+  if (Object.keys(rules).length) {
+    if (normalValues.amount > rules.maxAmount) {
+      errors.amount = TEXT_ERRORS.TOO_MUCH;
+    }
+
+    if (normalValues.amount < rules.minAmount) {
+      errors.amount = TEXT_ERRORS.TOO_LITTLE;
+    }
+    const dateError = validateDate(normalValues.date, normalValues.time, rules);
+    if (dateError) {
+      errors.date = dateError;
+      errors.time = dateError;
+    }
+  }
+
   return errors;
 }
+
+const validateDate = (date, time, rules) => {
+  const dateClone = new Date(date);
+  const newTime = ensureTime(time);
+  const newDate = combineDateTime(dateClone, newTime);
+
+  const maxDate = getEarliestDate(new Date(), rules.endDate);
+  if (newDate.getTime() > maxDate.getTime()) {
+    return DATE_ERRORS.TOO_LATE;
+  }
+  if (newDate.getTime() < rules.startDate.getTime()) {
+    return DATE_ERRORS.TOO_EARLY;
+  }
+  return undefined;
+};
 
 const mapStateToProps = selectAddMustPage();
 
 function mapDispatchToProps(dispatch) {
   return {
+    getBrands: () => dispatch(loadBrands()),
+    getRules: () => dispatch(loadRules()),
     dispatch,
   };
 }
-
-const connectedAddMustPage = connect(mapStateToProps, mapDispatchToProps)(AddMustPage);
 
 const AddMustFormPage = reduxForm({
   form: 'add',
   validate,
   onSubmit: onSubmitActions(ADD_MUST),
-})(connectedAddMustPage);
+  initialValues: fromJS({
+    date: new Date(),
+    time: new Date(),
+  }),
+})(AddMustPage);
 
-export default AddMustFormPage;
+const connectedAddMustPage = connect(mapStateToProps, mapDispatchToProps)(AddMustFormPage);
+
+
+export default connectedAddMustPage;

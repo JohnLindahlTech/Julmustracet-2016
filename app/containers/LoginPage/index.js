@@ -10,18 +10,19 @@
  */
 
 import React, { PropTypes } from 'react';
-import messages from './messages';
+
 import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Field, reduxForm, formValueSelector } from 'redux-form/immutable';
 import { Toggle } from 'redux-form-material-ui';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import { onSubmitActions } from 'redux-form-submit-saga/immutable';
-import { loginRequest } from '../auth/actions';
+import { loginRequest } from 'containers/auth/actions';
 import Page from 'components/Page';
 import { Link } from 'react-router';
 import { red900, red200, fullWhite } from 'material-ui/styles/colors';
-import TranslatedValidationField from 'components/TranslatedValidationField';
+import TranslatedValidationField, { ERRORS } from 'components/TranslatedValidationField';
+import messages from './messages';
 
 
 import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
@@ -106,11 +107,11 @@ function validate(values) {
   const requiredFields = ['email', 'password'];
   requiredFields.forEach((field) => {
     if (!normalValues[field]) {
-      errors[field] = 'presence';
+      errors[field] = ERRORS.REQUIRED;
     }
   });
   if (normalValues.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(normalValues.email)) {
-    errors.email = 'custom.email';
+    errors.email = ERRORS.EMAIL;
   }
   return errors;
 }
