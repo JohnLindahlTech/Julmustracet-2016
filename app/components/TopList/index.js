@@ -31,7 +31,7 @@ function TopList({ rows, username }) {
         showRowHover
         stripedRows
       >
-        {rows.length ? rows.map((row) => (<TopListRow key={row.position} {...row} usernameAsName={username} />)) : renderEmpty()}
+        {rows.length ? rows.map((row) => (<TopListRow key={`${row.position}-${row.name}`} {...row} usernameAsName={username} />)) : renderEmpty()}
       </TableBody>
     </Table>
   );

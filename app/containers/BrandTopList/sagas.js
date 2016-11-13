@@ -4,7 +4,7 @@ import request from '../../utils/request';
 import { LOAD_BRANDS } from './constants';
 import { brandsLoaded, brandsLoadingError } from './actions';
 
-const url = 'http://localhost:3000/api/Brands';
+const url = 'http://localhost:3000/api/Brands?filter[where][total][gt]=0';
 
 export function* getBrands() {
   const brands = yield call(request, url);

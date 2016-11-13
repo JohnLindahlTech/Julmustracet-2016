@@ -1,11 +1,11 @@
 import { take, call, put, fork, cancel } from 'redux-saga/effects';
-import request from '../../utils/request';
+import request from 'utils/request';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_PLAYERS } from './constants';
 import { playersLoaded, playersLoadingError } from './actions';
 
 export function* getPlayers() {
-  const url = 'http://localhost:3000/api/Players';
+  const url = 'http://localhost:3000/api/Players?filter[where][total][gt]=0';
   const players = yield call(request, url);
   if (!players.error) {
     yield put(playersLoaded(players.data));

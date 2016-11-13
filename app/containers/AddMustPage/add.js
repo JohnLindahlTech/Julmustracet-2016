@@ -10,7 +10,6 @@ export function getBrands() {
 }
 
 export function sendDrink(formData) {
-  console.log(formData.toJS());
   const {
     brand,
     amount,

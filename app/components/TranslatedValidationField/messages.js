@@ -6,7 +6,8 @@
 import { defineMessages } from 'react-intl';
 export const ERRORS = {
   REQUIRED: 'presence',
-  TOO_SHORT: 'too.short',
+  LENGTH_SHORT: 'length.min',
+  LENGTH_LONG: 'length.max',
   UNIQUE: 'uniqueness',
   EMAIL: 'custom.email',
   DEFAULT: 'error',
@@ -19,9 +20,13 @@ export default defineMessages({
     id: 'app.components.TranslatedValidationField.presence',
     defaultMessage: 'Required field',
   },
-  [ERRORS.TOO_SHORT]: {
+  [ERRORS.LENGTH_SHORT]: {
     id: 'app.components.TranslatedValidationField.too_short',
     defaultMessage: 'Too short',
+  },
+  [ERRORS.LENGTH_LONG]: {
+    id: 'app.components.TranslatedValidationField.too_short',
+    defaultMessage: 'Too long',
   },
   [ERRORS.UNIQUE]: {
     id: 'app.components.TranslatedValidationField.uniqueness',
