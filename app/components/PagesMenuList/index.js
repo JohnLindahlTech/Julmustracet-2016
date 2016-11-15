@@ -8,7 +8,6 @@ import React, { PropTypes } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import IconMenu from 'material-ui/IconMenu';
-
 import IconButton from 'material-ui/IconButton/IconButton';
 import MenuIcon from 'material-ui/svg-icons/navigation/menu';
 import { white } from 'material-ui/styles/colors';

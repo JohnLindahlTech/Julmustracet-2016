@@ -20,7 +20,7 @@ export default class BrandsPage extends React.Component { // eslint-disable-line
   render() {
     return (<Page messages={messages} isAddAllowed>
       <Row>
-        <Col>
+        <Col xs={12}>
           <BrandTopList />
         </Col>
       </Row>
