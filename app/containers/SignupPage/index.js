@@ -20,6 +20,8 @@ import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { Toggle } from 'redux-form-material-ui';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import { red900 } from 'material-ui/styles/colors';
+import { Row, Col } from 'react-bem-grid';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import TranslatedValidationField, { ERRORS } from 'components/TranslatedValidationField';
 import { registerRequest } from '../auth/actions';
 import { SET_AUTH, REQUEST_ERROR } from '../auth/constants';
@@ -65,29 +67,38 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
     } = this.props;
     return (
       <Page messages={messages}>
-        <form onSubmit={handleSubmit} noValidate>
-          {error && renderError(error)}
-          <div>
-            <Field name="username" component={TranslatedValidationField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.username)} />
-          </div>
-          <div>
-            <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
-          </div>
-          <div>
-            <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
-          </div>
-          <div>
-            <Field name="showPassword" component={Toggle} label={formatMessage(messages.showPassword)} labelPosition="right" />
-          </div>
-          <div>
-            <FlatButton
-              label={formatMessage(messages.resetForm)}
-              secondary
-              onTouchTap={reset}
-            />
-            <RaisedButton type="submit" primary disabled={pristine || submitting} label={formatMessage(messages.submitForm)} />
-          </div>
-        </form>
+        <Row xsCenter>
+          <Col md={6} >
+            <Card>
+              <CardTitle title={<FormattedMessage {...messages.header} />} />
+              <CardText>
+                <form onSubmit={handleSubmit} noValidate>
+                  {error && renderError(error)}
+                  <div>
+                    <Field name="username" component={TranslatedValidationField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.username)} />
+                  </div>
+                  <div>
+                    <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
+                  </div>
+                  <div>
+                    <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
+                  </div>
+                  <div>
+                    <Field name="showPassword" component={Toggle} label={formatMessage(messages.showPassword)} labelPosition="right" />
+                  </div>
+                  <div>
+                    <FlatButton
+                      label={formatMessage(messages.resetForm)}
+                      secondary
+                      onTouchTap={reset}
+                    />
+                    <RaisedButton type="submit" primary disabled={pristine || submitting} label={formatMessage(messages.submitForm)} />
+                  </div>
+                </form>
+              </CardText>
+            </Card>
+          </Col>
+        </Row>
       </Page>
     );
   }

@@ -20,6 +20,8 @@ import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { loginRequest } from 'containers/auth/actions';
 import Page from 'components/Page';
 import { Link } from 'react-router';
+import { Row, Col } from 'react-bem-grid';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import { red900, red200, fullWhite } from 'material-ui/styles/colors';
 import TranslatedValidationField, { ERRORS } from 'components/TranslatedValidationField';
 import messages from './messages';
@@ -73,29 +75,37 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
     };
     return (
       <Page messages={messages}>
-        <form onSubmit={handleSubmit} noValidate>
-          {error && renderError(error)}
-          <div>
-            <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
-          </div>
-          <div>
-            <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
-          </div>
-          <div>
-            <Field
-              name="showPassword"
-              component={Toggle}
-              label={formatMessage(messages.showPassword)}
-              labelPosition="right"
-              thumbSwitchedStyle={styles.thumbSwitched}
-              trackSwitchedStyle={styles.trackSwitched}
-            />
-          </div>
-          <div>
-            <RaisedButton backgroundColor={red900} type="submit" labelColor={fullWhite} disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
-          </div>
-          <Link to="/signup"><FormattedMessage {...messages.signup} /></Link>
-        </form>
+        <Row xsCenter>
+          <Col md={6} >
+            <Card>
+              <CardTitle title={<FormattedMessage {...messages.header} />} subtitle={<span><Link to="/signup"><FormattedMessage {...messages.signup} /></Link></span>} />
+              <CardText>
+                <form onSubmit={handleSubmit} noValidate>
+                  {error && renderError(error)}
+                  <div>
+                    <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
+                  </div>
+                  <div>
+                    <Field name="password" component={TranslatedValidationField} type={showPassword ? 'text' : 'password'} hintText="**********" floatingLabelText={formatMessage(messages.password)} />
+                  </div>
+                  <div>
+                    <Field
+                      name="showPassword"
+                      component={Toggle}
+                      label={formatMessage(messages.showPassword)}
+                      labelPosition="right"
+                      thumbSwitchedStyle={styles.thumbSwitched}
+                      trackSwitchedStyle={styles.trackSwitched}
+                    />
+                  </div>
+                  <div>
+                    <RaisedButton backgroundColor={red900} type="submit" labelColor={fullWhite} disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
+                  </div>
+                </form>
+              </CardText>
+            </Card>
+          </Col>
+        </Row>
       </Page>
     );
   }

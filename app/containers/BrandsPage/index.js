@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import { Row, Col } from 'react-bem-grid';
 import messages from './messages';
 import Page from '../../components/Page';
 import BrandTopList from '../BrandTopList';
@@ -18,7 +19,11 @@ export default class BrandsPage extends React.Component { // eslint-disable-line
 
   render() {
     return (<Page messages={messages} isAddAllowed>
-      <BrandTopList />
+      <Row>
+        <Col>
+          <BrandTopList />
+        </Col>
+      </Row>
     </Page>);
   }
 }

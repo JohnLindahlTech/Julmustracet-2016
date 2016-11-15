@@ -12,7 +12,13 @@ import { Row } from 'react-bem-grid';
 import messages from './messages';
 import TopListRow from '../TopListRow';
 
-import styles from '../TopListRow/styles.css';
+const numberCell = {
+  paddingLeft: '5px',
+  paddingRight: '5px',
+  textAlign: 'right',
+  width: '40px',
+};
+const positionCell = Object.assign({}, numberCell, { textAlign: 'left' });
 
 function TopList({ rows, username, title }) {
   return (
@@ -27,10 +33,10 @@ function TopList({ rows, username, title }) {
               enableSelectAll={false}
             >
               <TableRow>
-                <TableHeaderColumn className={styles.positionCell}><FormattedMessage {...messages.position} /></TableHeaderColumn>
+                <TableHeaderColumn style={positionCell}><FormattedMessage {...messages.position} /></TableHeaderColumn>
                 <TableHeaderColumn><FormattedMessage {...messages[username ? 'username' : 'name']} /></TableHeaderColumn>
-                <TableHeaderColumn className={styles.numberCell}><FormattedMessage {...messages.daily} /></TableHeaderColumn>
-                <TableHeaderColumn className={styles.numberCell}><FormattedMessage {...messages.total} /></TableHeaderColumn>
+                <TableHeaderColumn style={numberCell}><FormattedMessage {...messages.daily} /></TableHeaderColumn>
+                <TableHeaderColumn style={numberCell}><FormattedMessage {...messages.total} /></TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody

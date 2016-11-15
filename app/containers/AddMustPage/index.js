@@ -15,6 +15,8 @@ import { AutoComplete } from 'redux-form-material-ui';
 import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { fromJS } from 'immutable';
 import Page from 'components/Page';
+import { Row, Col } from 'react-bem-grid';
+import { Card, CardTitle, CardText } from 'material-ui/Card';
 import TranslatedAutoComplete from 'components/TranslatedAutoComplete';
 import TranslatedDatePicker, { ERRORS as DATE_ERRORS } from 'components/TranslatedDatePicker';
 import TranslatedTimePicker from 'components/TranslatedTimePicker';
@@ -105,69 +107,78 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
     const maxDate = getEarliestDate(new Date(), endDate);
     return (
       <Page messages={messages}>
-        <form onSubmit={handleSubmit} noValidate>
-          {error && renderError(error)}
-          <div>
-            <Field
-              name="brand"
-              maxSearchResults={6}
-              filter={AutoComplete.fuzzyFilter}
-              dataSource={brands.map((brand) => (brand.name))}
-              component={TranslatedAutoComplete}
-              hintText="Apotekarnes"
-              floatingLabelText={<FormattedMessage {...messages.brand} />}
-            />
-          </div>
-          <div>
-            <Field
-              name="amount"
-              component={TranslatedValidationField}
-              step={0.1}
-              min={minAmount}
-              max={maxAmount}
-              type="number"
-              hintText="0.33"
-              floatingLabelText={<FormattedMessage {...messages.amount} />}
-            />
-          </div>
-          <div>
-            <Field
-              name="date"
-              disableYearSelection
-              component={TranslatedDatePicker}
-              hintText="Data"
-              autoOk
-              floatingLabelText={<FormattedMessage {...messages.date} />}
-              DateTimeFormat={DateTimeFormat}
-              locale="sv-SE"
-              okLabel={<FormattedMessage {...messages.ok} />}
-              cancelLabel={<FormattedMessage {...messages.cancel} />}
-              minDate={startDate}
-              maxDate={maxDate}
-              defaultDate={defaultDate}
-            />
-          </div>
-          <div>
-            <Field
-              name="time"
-              component={TranslatedTimePicker}
-              hintText="Data"
-              autoOk
-              floatingLabelText={<FormattedMessage {...messages.time} />}
-              okLabel={<FormattedMessage {...messages.ok} />}
-              cancelLabel={<FormattedMessage {...messages.cancel} />}
-              defaultTime={defaultDate}
-            />
-          </div>
-          <div>
-            <FlatButton
-              label={<FormattedMessage {...messages.resetForm} />}
-              secondary
-              onTouchTap={reset}
-            />
-            <RaisedButton type="submit" primary disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
-          </div>
-        </form>
+        <Row xsCenter>
+          <Col md={6} >
+            <Card>
+              <CardTitle title={<FormattedMessage {...messages.header} />} />
+              <CardText>
+                <form onSubmit={handleSubmit} noValidate>
+                  {error && renderError(error)}
+                  <div>
+                    <Field
+                      name="brand"
+                      maxSearchResults={6}
+                      filter={AutoComplete.fuzzyFilter}
+                      dataSource={brands.map((brand) => (brand.name))}
+                      component={TranslatedAutoComplete}
+                      hintText="Apotekarnes"
+                      floatingLabelText={<FormattedMessage {...messages.brand} />}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      name="amount"
+                      component={TranslatedValidationField}
+                      step={0.1}
+                      min={minAmount}
+                      max={maxAmount}
+                      type="number"
+                      hintText="0.33"
+                      floatingLabelText={<FormattedMessage {...messages.amount} />}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      name="date"
+                      disableYearSelection
+                      component={TranslatedDatePicker}
+                      hintText="Data"
+                      autoOk
+                      floatingLabelText={<FormattedMessage {...messages.date} />}
+                      DateTimeFormat={DateTimeFormat}
+                      locale="sv-SE"
+                      okLabel={<FormattedMessage {...messages.ok} />}
+                      cancelLabel={<FormattedMessage {...messages.cancel} />}
+                      minDate={startDate}
+                      maxDate={maxDate}
+                      defaultDate={defaultDate}
+                    />
+                  </div>
+                  <div>
+                    <Field
+                      name="time"
+                      component={TranslatedTimePicker}
+                      hintText="Data"
+                      autoOk
+                      floatingLabelText={<FormattedMessage {...messages.time} />}
+                      okLabel={<FormattedMessage {...messages.ok} />}
+                      cancelLabel={<FormattedMessage {...messages.cancel} />}
+                      defaultTime={defaultDate}
+                    />
+                  </div>
+                  <div>
+                    <FlatButton
+                      label={<FormattedMessage {...messages.resetForm} />}
+                      secondary
+                      onTouchTap={reset}
+                    />
+                    <RaisedButton type="submit" primary disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
+                  </div>
+                </form>
+              </CardText>
+            </Card>
+          </Col>
+        </Row>
       </Page>
     );
   }

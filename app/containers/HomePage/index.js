@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import { Row, Col } from 'react-bem-grid';
 import messages from './messages';
 import Page from '../../components/Page';
 import PlayerTopList from '../PlayerTopList';
@@ -19,8 +20,15 @@ import BrandTopList from '../BrandTopList';
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
   render() {
     return (<Page messages={messages} isAddAllowed>
-      <PlayerTopList />
-      <BrandTopList />
+      <Row>
+        <Col md={6} xs={12}>
+          <PlayerTopList />
+        </Col>
+        <Col md={6} xs={12}>
+          <BrandTopList />
+        </Col>
+      </Row>
+
     </Page>);
   }
 }

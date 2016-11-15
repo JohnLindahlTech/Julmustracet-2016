@@ -10,6 +10,7 @@
  */
 
 import React from 'react';
+import { Row, Col } from 'react-bem-grid';
 import messages from './messages';
 import Page from '../../components/Page';
 import PlayerTopList from '../PlayerTopList';
@@ -18,7 +19,11 @@ export default class LeaderboardPage extends React.Component { // eslint-disable
 
   render() {
     return (<Page messages={messages} isAddAllowed>
-      <PlayerTopList />
+      <Row>
+        <Col xs={12}>
+          <PlayerTopList />
+        </Col>
+      </Row>
     </Page>);
   }
 }
