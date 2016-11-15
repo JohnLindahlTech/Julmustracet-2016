@@ -10,6 +10,7 @@ import { FormattedNumber } from 'react-intl';
 
 import styles from './styles.css';
 
+
 function TopListRow(props) {
   const {
     position,
@@ -21,10 +22,10 @@ function TopListRow(props) {
   } = props;
   return (
     <TableRow>
-      <TableRowColumn><FormattedNumber value={position} maximumFractionDigits={0} /></TableRowColumn>
+      <TableRowColumn className={styles.positionCell}><FormattedNumber value={position} maximumFractionDigits={0} /></TableRowColumn>
       <TableRowColumn>{usernameAsName ? username : name}</TableRowColumn>
-      <TableRowColumn className={styles.rightAligned}><FormattedNumber value={daily} maximumFractionDigits={2} /></TableRowColumn>
-      <TableRowColumn className={styles.rightAligned}><FormattedNumber value={total} maximumFractionDigits={2} /></TableRowColumn>
+      <TableRowColumn className={styles.numberCell}><FormattedNumber value={daily} maximumFractionDigits={2} /></TableRowColumn>
+      <TableRowColumn className={styles.numberCell}><FormattedNumber value={total} maximumFractionDigits={2} /></TableRowColumn>
     </TableRow>
   );
 }

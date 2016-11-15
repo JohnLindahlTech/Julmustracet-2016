@@ -21,10 +21,7 @@ export class PlayerTopList extends React.Component { // eslint-disable-line reac
       players,
     } = this.props;
     return (
-      <div>
-        <h2><FormattedMessage {...messages.header} /></h2>
-        <TopList rows={players} username />
-      </div>
+      <TopList rows={players} username title={<FormattedMessage {...messages.header} />} />
     );
   }
 }

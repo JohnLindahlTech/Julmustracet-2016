@@ -21,10 +21,7 @@ export class BrandTopList extends React.Component { // eslint-disable-line react
       brands,
     } = this.props;
     return (
-      <div>
-        <h2><FormattedMessage {...messages.header} /></h2>
-        <TopList rows={brands} name />
-      </div>
+      <TopList rows={brands} name title={<FormattedMessage {...messages.header} />} />
     );
   }
 }

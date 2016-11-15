@@ -16,6 +16,7 @@ import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { Grid, Row, Col } from 'react-bem-grid';
 import messages from './messages';
 
 import PagesMenuList from '../PagesMenuList';
@@ -68,13 +69,20 @@ class JulMenu extends React.Component {
 
 function renderAddButton() {
   return (
-    <FloatingActionButton
-      backgroundColor={red900}
-      className={styles['add-button']}
-      containerElement={<Link to="/add" />} // eslint-disable-line jsx-a11y/anchor-has-content
-    >
-      <ContentAdd />
-    </FloatingActionButton>
+    <Grid>
+      <Row>
+        <Col>
+          <FloatingActionButton
+            backgroundColor={red900}
+            className={styles['add-button']}
+            containerElement={<Link to="/add" />} // eslint-disable-line jsx-a11y/anchor-has-content
+          >
+            <ContentAdd />
+          </FloatingActionButton>
+        </Col>
+      </Row>
+
+    </Grid>
   );
 }
 

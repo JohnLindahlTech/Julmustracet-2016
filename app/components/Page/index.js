@@ -12,6 +12,8 @@
 import React, { PropTypes } from 'react';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import Helmet from 'react-helmet';
+import { Grid } from 'react-bem-grid';
+import 'react-bem-grid/dist/Grid.css';
 import Menu from '../../components/Menu';
 
 import styles from './styles.css';
@@ -39,8 +41,10 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
             { name: 'description', content: formatMessage(description) },
           ]}
         />
-        <Menu isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />}></Menu>
-        { children }
+        <Menu isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />} />
+        <Grid>
+          { children }
+        </Grid>
       </div>
     );
   }
