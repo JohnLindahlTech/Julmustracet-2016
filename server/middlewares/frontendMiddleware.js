@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const compression = require('compression');
-const pkg = require(path.resolve(process.cwd(), 'package.json'));
+const pkg = require(path.resolve(process.cwd(), 'package.json'));  // eslint-disable-line import/no-dynamic-require
 
 // Dev middleware
 const addDevMiddlewares = (app, webpackConfig) => {

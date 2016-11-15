@@ -30,7 +30,7 @@ function PagesMenuList(props) {
       targetOrigin={{ horizontal: 'left', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
     >
-    {items.map((item) => (<NavMenuItem {...item} key={item.to} />))}
+      {items.map((item) => (<NavMenuItem {...item} key={item.to} />))}
     </IconMenu>
   );
 }

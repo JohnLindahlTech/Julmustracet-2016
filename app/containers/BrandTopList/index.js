@@ -4,10 +4,10 @@
  *
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import selectBrandTopList from './selectors';
 import { FormattedMessage } from 'react-intl';
+import selectBrandTopList from './selectors';
 import TopList from '../../components/TopList';
 import messages from './messages';
 import { loadBrands } from './actions';
@@ -28,6 +28,11 @@ export class BrandTopList extends React.Component { // eslint-disable-line react
     );
   }
 }
+
+BrandTopList.propTypes = {
+  loadBrands: PropTypes.func,
+  brands: PropTypes.array,
+};
 
 const mapStateToProps = selectBrandTopList();
 

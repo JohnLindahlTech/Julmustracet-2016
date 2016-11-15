@@ -7,17 +7,18 @@
 import React, { PropTypes } from 'react';
 import AppBar from 'material-ui/AppBar';
 import { red900 } from 'material-ui/styles/colors';
-import PagesMenuList from '../PagesMenuList';
+
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import selectLoggedIn from 'containers/auth/selectors';
 import { logout } from 'containers/auth/actions';
 import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 import { Link } from 'react-router';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import messages from './messages';
 
+import PagesMenuList from '../PagesMenuList';
 import styles from './styles.css';
 
 class JulMenu extends React.Component {
@@ -59,7 +60,7 @@ class JulMenu extends React.Component {
           iconElementLeft={<PagesMenuList loggedIn={loggedIn} />}
           iconElementRight={loggedIn ? renderLogout(doLogout) : renderLogin()}
         />
-      {isAddAllowed ? renderAddButton() : null}
+        {isAddAllowed ? renderAddButton() : null}
       </nav>
     );
   }

@@ -13,8 +13,9 @@
 
 import React from 'react';
 import { injectIntl, intlShape } from 'react-intl';
-import messages from './messages';
 import Helmet from 'react-helmet';
+import messages from './messages';
+
 import styles from './styles.css';
 
 class App extends React.Component { // eslint-disable-line react/prefer-stateless-function

@@ -8,7 +8,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const logger = require('../../server/logger');
 const cheerio = require('cheerio');
-const pkg = require(path.resolve(process.cwd(), 'package.json'));
+const pkg = require(path.resolve(process.cwd(), 'package.json')); // eslint-disable-line import/no-dynamic-require
 const dllPlugin = pkg.dllPlugin;
 
 const plugins = [
@@ -93,7 +93,7 @@ function dependencyHandlers() {
     return [
       new webpack.DllReferencePlugin({
         context: process.cwd(),
-        manifest: require(manifestPath), // eslint-disable-line global-require
+        manifest: require(manifestPath), // eslint-disable-line
       }),
     ];
   }
@@ -114,7 +114,7 @@ function dependencyHandlers() {
 
     return new webpack.DllReferencePlugin({
       context: process.cwd(),
-      manifest: require(manifestPath), // eslint-disable-line global-require
+      manifest: require(manifestPath), // eslint-disable-line
     });
   });
 }

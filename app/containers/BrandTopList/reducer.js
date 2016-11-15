@@ -3,13 +3,13 @@
  * BrandTopList reducer
  *
  */
-
+import { fromJS } from 'immutable';
 import {
   LOAD_BRANDS,
   LOAD_BRANDS_SUCCESS,
   LOAD_BRANDS_ERROR,
 } from './constants';
-import { fromJS } from 'immutable';
+
 
 // The initial state of the App
 const initialState = fromJS({

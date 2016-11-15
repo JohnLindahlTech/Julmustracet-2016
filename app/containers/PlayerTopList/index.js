@@ -4,10 +4,10 @@
  *
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import selectPlayerTopList from './selectors';
 import { FormattedMessage } from 'react-intl';
+import selectPlayerTopList from './selectors';
 import TopList from '../../components/TopList';
 import messages from './messages';
 import { loadPlayers } from './actions';
@@ -28,6 +28,11 @@ export class PlayerTopList extends React.Component { // eslint-disable-line reac
     );
   }
 }
+
+PlayerTopList.propTypes = {
+  loadPlayers: PropTypes.func,
+  players: PropTypes.array,
+};
 
 const mapStateToProps = selectPlayerTopList();
 

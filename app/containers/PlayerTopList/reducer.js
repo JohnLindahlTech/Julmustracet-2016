@@ -3,13 +3,13 @@
  * PlayerTopList reducer
  *
  */
-
+import { fromJS } from 'immutable';
 import {
   LOAD_PLAYERS,
   LOAD_PLAYERS_SUCCESS,
   LOAD_PLAYERS_ERROR,
 } from './constants';
-import { fromJS } from 'immutable';
+
 
 // The initial state of the App
 const initialState = fromJS({

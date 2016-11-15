@@ -1,7 +1,7 @@
 /*
  * The reducer takes care of state changes in our app through actions
  */
-
+import { fromJS } from 'immutable';
 import {
   SET_AUTH,
   SENDING_REQUEST,
@@ -9,7 +9,7 @@ import {
   CLEAR_ERROR,
 } from './constants';
 import auth from './auth';
-import { fromJS } from 'immutable';
+
 
 // The initial application state
 const initialState = fromJS({
