@@ -5,7 +5,7 @@ import { LOAD_PLAYERS } from './constants';
 import { playersLoaded, playersLoadingError } from './actions';
 
 export function* getPlayers() {
-  const url = 'http://localhost:3000/api/Players?filter[where][total][gt]=0';
+  const url = '/api/Players?filter[where][total][gt]=0';
   const players = yield call(request, url);
   if (!players.error) {
     yield put(playersLoaded(players.data));

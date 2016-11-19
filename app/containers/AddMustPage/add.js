@@ -1,9 +1,9 @@
 import { post, get } from 'utils/request';
 import { combineDateTime } from 'utils/time';
 
-const BRANDS_URL = 'http://localhost:3000/api/Brands';
-const DRINK_URL = 'http://localhost:3000/api/Players/me/drinks';
-const RULES_URL = 'http://localhost:3000/api/Rules';
+const BRANDS_URL = '/api/Brands';
+const DRINK_URL = '/api/Players/me/drinks';
+const RULES_URL = '/api/Rules';
 
 export function getBrands() {
   return get(BRANDS_URL).then(({ data }) => data);

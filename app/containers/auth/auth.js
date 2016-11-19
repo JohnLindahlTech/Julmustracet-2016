@@ -1,8 +1,8 @@
 import { post } from '../../utils/request';
 
-const LOGIN_URL = 'http://localhost:3000/api/Players/login';
-const LOGOUT_URL = 'http://localhost:3000/api/Players/logout';
-const REGISTER_URL = 'http://localhost:3000/api/Players';
+const LOGIN_URL = '/api/Players/login';
+const LOGOUT_URL = '/api/Players/logout';
+const REGISTER_URL = '/api/Players';
 
 let localStorage;
 
