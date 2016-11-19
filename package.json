@@ -220,7 +220,7 @@
     "ip": "1.1.4",
     "localStorage": "1.0.3",
     "lodash": "4.16.6",
-    "material-ui": "0.16.2",
+    "material-ui": "0.16.4",
     "minimist": "1.2.0",
     "react": "^15.3.2",
     "react-bem-grid": "0.0.12",
