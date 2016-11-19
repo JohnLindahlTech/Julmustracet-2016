@@ -10,12 +10,16 @@
  */
 
 import React from 'react';
+import { locationShape } from 'react-router/lib/PropTypes';
 import messages from './messages';
 import Page from '../../components/Page';
 
 export default class NotFoundPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    location: locationShape,
+  }
 
   render() {
-    return (<Page messages={messages} />);
+    return (<Page messages={messages} location={this.props.location} />);
   }
 }

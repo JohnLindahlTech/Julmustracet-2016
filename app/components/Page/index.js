@@ -11,6 +11,7 @@
 
 import React, { PropTypes } from 'react';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import { locationShape } from 'react-router/lib/PropTypes';
 import Helmet from 'react-helmet';
 import { Grid } from 'react-bem-grid';
 import 'react-bem-grid/dist/Grid.css';
@@ -32,6 +33,7 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
       },
       isAddAllowed,
       children,
+      location,
      } = this.props;
     return (
       <div className={styles.page}>
@@ -41,7 +43,7 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
             { name: 'description', content: formatMessage(description) },
           ]}
         />
-        <Menu isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />} />
+        <Menu location={location} isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />} />
         <Grid>
           { children }
         </Grid>
@@ -55,6 +57,7 @@ Page.propTypes = {
   messages: PropTypes.object,
   children: PropTypes.node,
   isAddAllowed: PropTypes.bool,
+  location: locationShape,
 };
 
 export default injectIntl(Page);

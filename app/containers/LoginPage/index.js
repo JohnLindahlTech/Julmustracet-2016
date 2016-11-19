@@ -20,6 +20,7 @@ import { onSubmitActions } from 'redux-form-submit-saga/immutable';
 import { loginRequest } from 'containers/auth/actions';
 import Page from 'components/Page';
 import { Link } from 'react-router';
+import { locationShape } from 'react-router/lib/PropTypes';
 import { Row, Col } from 'react-bem-grid';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
 import { red900 } from 'material-ui/styles/colors';
@@ -47,6 +48,7 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
     submitting: PropTypes.bool,
     showPassword: PropTypes.bool,
     error: PropTypes.string,
+    location: locationShape,
   };
 
   static defaultProps = {
@@ -63,9 +65,10 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
       submitting,
       showPassword,
       error,
+      location,
     } = this.props;
     return (
-      <Page messages={messages}>
+      <Page messages={messages} location={location}>
         <Row xsCenter>
           <Col md={6} >
             <Card>

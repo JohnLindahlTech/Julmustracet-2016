@@ -1,20 +1,5 @@
 [
   {
-    "id": "app.components.AboutPage.description",
-    "defaultMessage": "About Julmustracet.",
-    "message": "Om JulmustRacet"
-  },
-  {
-    "id": "app.components.AboutPage.header",
-    "defaultMessage": "About",
-    "message": "Om JulmustRacet"
-  },
-  {
-    "id": "app.components.AboutPage.title",
-    "defaultMessage": "JulmustRacet About",
-    "message": "JulmustRacet - Om"
-  },
-  {
     "id": "app.components.AddMustPage.amount",
     "defaultMessage": "Amount",
     "message": "Mängd (liter)"
@@ -88,21 +73,6 @@
     "id": "app.components.App.title",
     "defaultMessage": "JulmustRacet",
     "message": "JulmustRacet 2016"
-  },
-  {
-    "id": "app.components.BrandsPage.description",
-    "defaultMessage": "Leaderboard for JulmustRacet based on Brands.",
-    "message": "Topplistan för de olika Julmust-tillverkarna."
-  },
-  {
-    "id": "app.components.BrandsPage.header",
-    "defaultMessage": "Brands",
-    "message": "Märken"
-  },
-  {
-    "id": "app.components.BrandsPage.title",
-    "defaultMessage": "JulmustRacet Brands",
-    "message": "JulmustRacet - Märken"
   },
   {
     "id": "app.components.HomePage.description",
@@ -195,39 +165,39 @@
     "message": "JulmustRacet - Kunde inte hitta sidan"
   },
   {
-    "id": "app.components.PagesMenuList.about",
-    "defaultMessage": "About",
-    "message": "Om JulmustRacet"
+    "id": "app.components.PlayerPage.description",
+    "defaultMessage": "Player information",
+    "message": "Deltagarinformation"
   },
   {
-    "id": "app.components.PagesMenuList.add",
-    "defaultMessage": "Add",
-    "message": "Lägg till must"
+    "id": "app.components.PlayerPage.title",
+    "defaultMessage": "Julmustracet player info",
+    "message": "Julmustracet - Deltagarinformation"
   },
   {
-    "id": "app.components.PagesMenuList.brands",
-    "defaultMessage": "Brands",
-    "message": "Märken"
+    "id": "app.components.ProfileView.amount",
+    "defaultMessage": "Amount (L)",
+    "message": "Mängd (L)"
   },
   {
-    "id": "app.components.PagesMenuList.home",
-    "defaultMessage": "Home",
-    "message": "Hem"
+    "id": "app.components.ProfileView.brand",
+    "defaultMessage": "Brand",
+    "message": "Märke"
   },
   {
-    "id": "app.components.PagesMenuList.leaderboard",
-    "defaultMessage": "Leaderboard",
-    "message": "Topplistan"
+    "id": "app.components.ProfileView.date",
+    "defaultMessage": "Date",
+    "message": "Tid"
   },
   {
-    "id": "app.components.PagesMenuList.login",
-    "defaultMessage": "Login",
-    "message": "Logga in"
+    "id": "app.components.ProfileView.delete",
+    "defaultMessage": "Delete",
+    "message": "Ta bort"
   },
   {
-    "id": "app.components.PagesMenuList.signup",
-    "defaultMessage": "Signup",
-    "message": "Skapa konto"
+    "id": "app.components.ProfileView.subtitle",
+    "defaultMessage": "Position: {position} - Total: {total} L - Daily: {daily} L/day",
+    "message": "Positon: {position} - Totalt: {total}L - Dagligen: {daily}L/dag"
   },
   {
     "id": "app.components.SignupPage.422",
@@ -430,19 +400,9 @@
     "message": "Bästa Märkena"
   },
   {
-    "id": "app.containers.LeaderboardPage.description",
-    "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
-    "message": "Topplistan för JulmustRacet 2016."
-  },
-  {
-    "id": "app.containers.LeaderboardPage.header",
-    "defaultMessage": "Leaderboard",
-    "message": "Topplistan"
-  },
-  {
-    "id": "app.containers.LeaderboardPage.title",
-    "defaultMessage": "JulmustRacet Leaderboard",
-    "message": "JulmustRacet - Topplistan"
+    "id": "app.containers.PlayerPage.header",
+    "defaultMessage": "Player info",
+    "message": "Deltagarinformation"
   },
   {
     "id": "app.containers.PlayerTopList.header",

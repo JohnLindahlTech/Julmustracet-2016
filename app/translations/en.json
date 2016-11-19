@@ -1,20 +1,5 @@
 [
   {
-    "id": "app.components.AboutPage.description",
-    "defaultMessage": "About Julmustracet.",
-    "message": ""
-  },
-  {
-    "id": "app.components.AboutPage.header",
-    "defaultMessage": "About",
-    "message": ""
-  },
-  {
-    "id": "app.components.AboutPage.title",
-    "defaultMessage": "JulmustRacet About",
-    "message": ""
-  },
-  {
     "id": "app.components.AddMustPage.amount",
     "defaultMessage": "Amount",
     "message": ""
@@ -87,21 +72,6 @@
   {
     "id": "app.components.App.title",
     "defaultMessage": "JulmustRacet",
-    "message": ""
-  },
-  {
-    "id": "app.components.BrandsPage.description",
-    "defaultMessage": "Leaderboard for JulmustRacet based on Brands.",
-    "message": ""
-  },
-  {
-    "id": "app.components.BrandsPage.header",
-    "defaultMessage": "Brands",
-    "message": ""
-  },
-  {
-    "id": "app.components.BrandsPage.title",
-    "defaultMessage": "JulmustRacet Brands",
     "message": ""
   },
   {
@@ -195,38 +165,38 @@
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.about",
-    "defaultMessage": "About",
+    "id": "app.components.PlayerPage.description",
+    "defaultMessage": "Player information",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.add",
-    "defaultMessage": "Add",
+    "id": "app.components.PlayerPage.title",
+    "defaultMessage": "Julmustracet player info",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.brands",
-    "defaultMessage": "Brands",
+    "id": "app.components.ProfileView.amount",
+    "defaultMessage": "Amount (L)",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.home",
-    "defaultMessage": "Home",
+    "id": "app.components.ProfileView.brand",
+    "defaultMessage": "Brand",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.leaderboard",
-    "defaultMessage": "Leaderboard",
+    "id": "app.components.ProfileView.date",
+    "defaultMessage": "Date",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.login",
-    "defaultMessage": "Login",
+    "id": "app.components.ProfileView.delete",
+    "defaultMessage": "Delete",
     "message": ""
   },
   {
-    "id": "app.components.PagesMenuList.signup",
-    "defaultMessage": "Signup",
+    "id": "app.components.ProfileView.subtitle",
+    "defaultMessage": "Position: {position} - Total: {total} L - Daily: {daily} L/day",
     "message": ""
   },
   {
@@ -430,18 +400,8 @@
     "message": ""
   },
   {
-    "id": "app.containers.LeaderboardPage.description",
-    "defaultMessage": "Leaderboard for JulmustRacet based on contestants.",
-    "message": ""
-  },
-  {
-    "id": "app.containers.LeaderboardPage.header",
-    "defaultMessage": "Leaderboard",
-    "message": ""
-  },
-  {
-    "id": "app.containers.LeaderboardPage.title",
-    "defaultMessage": "JulmustRacet Leaderboard",
+    "id": "app.containers.PlayerPage.header",
+    "defaultMessage": "Player info",
     "message": ""
   },
   {

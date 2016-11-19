@@ -20,8 +20,11 @@ export class PlayerTopList extends React.Component { // eslint-disable-line reac
     const {
       players,
     } = this.props;
+
+    const linkedPlayers = players.map((player) => Object.assign({}, player, { link: `/player/${player.username}` }));
+
     return (
-      <TopList rows={players} username title={<FormattedMessage {...messages.header} />} />
+      <TopList rows={linkedPlayers} username title={<FormattedMessage {...messages.header} />} />
     );
   }
 }
