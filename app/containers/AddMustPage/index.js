@@ -129,7 +129,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
                     <Field
                       name="amount"
                       component={TranslatedValidationField}
-                      step={0.1}
+                      step={0.01}
                       min={minAmount}
                       max={maxAmount}
                       type="number"
