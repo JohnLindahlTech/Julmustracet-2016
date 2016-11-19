@@ -23,6 +23,7 @@ import TranslatedTimePicker from 'components/TranslatedTimePicker';
 import TranslatedValidationField, { ERRORS as TEXT_ERRORS } from 'components/TranslatedValidationField';
 import { red900 } from 'material-ui/styles/colors';
 import { getEarliestDate, ensureTime, combineDateTime } from 'utils/time';
+import { locationShape } from 'react-router/lib/PropTypes';
 
 import areIntlLocalesSupported from 'intl-locales-supported';
 
@@ -72,6 +73,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
     defaultDate: PropTypes.object,
     getRules: PropTypes.func.isRequired,
     getBrands: PropTypes.func.isRequired,
+    location: locationShape,
   };
 
   static defaultProps = {
@@ -103,10 +105,11 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
       },
       error,
       defaultDate,
+      location,
     } = this.props;
     const maxDate = getEarliestDate(new Date(), endDate);
     return (
-      <Page messages={messages}>
+      <Page messages={messages} location={location}>
         <Row xsCenter>
           <Col md={6} >
             <Card>

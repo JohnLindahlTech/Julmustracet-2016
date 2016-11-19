@@ -13,6 +13,7 @@ import React, { PropTypes } from 'react';
 
 import Page from 'components/Page';
 import { connect } from 'react-redux';
+import { locationShape } from 'react-router/lib/PropTypes';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { Field, reduxForm, formValueSelector } from 'redux-form/immutable';
@@ -47,6 +48,7 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
     showPassword: PropTypes.bool,
     reset: PropTypes.func,
     error: PropTypes.string,
+    location: locationShape,
   };
 
   static defaultProps = {
@@ -64,9 +66,10 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
       submitting,
       showPassword,
       error,
+      location,
     } = this.props;
     return (
-      <Page messages={messages}>
+      <Page messages={messages} location={location}>
         <Row xsCenter>
           <Col md={6} >
             <Card>

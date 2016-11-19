@@ -80,51 +80,6 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
-      path: '/leaderboard',
-      name: 'leaderboardPage',
-      getComponent(location, cb) {
-        const importModules = Promise.all([
-          System.import('containers/PlayerTopList/reducer'),
-          System.import('containers/PlayerTopList/sagas'),
-          System.import('containers/LeaderboardPage'),
-        ]);
-
-        const renderRoute = loadModule(cb);
-
-        importModules.then(([playerReducer, playerSagas, component]) => {
-          injectReducer('playerTopList', playerReducer.default);
-          injectSagas(playerSagas.default);
-          renderRoute(component);
-        });
-
-        importModules.catch(errorLoading);
-      },
-    }, {
-      path: '/about',
-      name: 'aboutPage',
-      getComponent(location, cb) {
-        System.import('containers/AboutPage')
-          .then(loadModule(cb))
-          .catch(errorLoading);
-      },
-    }, {
-      path: '/brands',
-      name: 'brandsPage',
-      getComponent(location, cb) {
-        const importModules = Promise.all([
-          System.import('containers/BrandTopList/reducer'),
-          System.import('containers/BrandTopList/sagas'),
-          System.import('containers/BrandsPage'),
-        ]);
-        const renderRoute = loadModule(cb);
-        importModules.then(([brandReducer, brandSagas, component]) => {
-          injectReducer('brandTopList', brandReducer.default);
-          injectSagas(brandSagas.default);
-          renderRoute(component);
-        })
-          .catch(errorLoading);
-      },
-    }, {
       onEnter: checkAuth(store),
       path: LOGIN_PATH,
       name: 'loginPage',

@@ -11,6 +11,7 @@
 
 import React from 'react';
 import { Row, Col } from 'react-bem-grid';
+import { locationShape } from 'react-router/lib/PropTypes';
 import messages from './messages';
 import Page from '../../components/Page';
 import PlayerTopList from '../PlayerTopList';
@@ -18,8 +19,11 @@ import BrandTopList from '../BrandTopList';
 
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+  static propTypes = {
+    location: locationShape,
+  }
   render() {
-    return (<Page messages={messages} isAddAllowed>
+    return (<Page messages={messages} isAddAllowed location={this.props.location}>
       <Row>
         <Col md={6} xs={12}>
           <PlayerTopList />
