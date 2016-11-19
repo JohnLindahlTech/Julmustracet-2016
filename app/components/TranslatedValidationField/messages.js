@@ -25,7 +25,7 @@ export default defineMessages({
     defaultMessage: 'Too short',
   },
   [ERRORS.LENGTH_LONG]: {
-    id: 'app.components.TranslatedValidationField.too_short',
+    id: 'app.components.TranslatedValidationField.too_long',
     defaultMessage: 'Too long',
   },
   [ERRORS.UNIQUE]: {
