@@ -1,9 +1,11 @@
 import { take, call, put, fork, cancel } from 'redux-saga/effects';
 import { takeLatest } from 'redux-saga';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import { browserHistory } from 'react-router';
 import { getBrands, getRules, sendDrink } from './add';
 import {
   ADD_MUST_SUBMIT,
+  ADD_MUST_SUCCESS,
   GET_RULES,
   GET_BRANDS,
 } from './constants';
@@ -28,6 +30,10 @@ function* addMustSaga(action) {
 
 export function* watchAddMustSaga() {
   yield* takeLatest(ADD_MUST_SUBMIT, addMustSaga);
+}
+
+export function* watchMustAddedSaga() {
+  yield* takeLatest(ADD_MUST_SUCCESS, () => forwardTo('/'));
 }
 
 function* getRulesSaga() {
@@ -61,12 +67,17 @@ export function* root() {
   const watcherAdd = yield fork(watchAddMustSaga);
   const watcherBrands = yield fork(watchGetBrandsSaga);
   const watcherRules = yield fork(watchGetRulesSaga);
+  const watcherMustAdded = yield fork(watchMustAddedSaga);
   yield take(LOCATION_CHANGE);
   yield cancel(watcherAdd);
   yield cancel(watcherBrands);
   yield cancel(watcherRules);
+  yield cancel(watcherMustAdded);
 }
 
+function forwardTo(location) {
+  browserHistory.push(location);
+}
 
 export default [
   root,
