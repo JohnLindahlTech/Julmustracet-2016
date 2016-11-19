@@ -10,6 +10,9 @@ export const ERRORS = {
   TOO_LATE: 'too.late',
   TOO_EARLY: 'too.early',
   DEFAULT: 'error',
+  NUMBER: 'numericality.blank',
+  EMPTY: 'numericality.null',
+  CUSTOM: 'custom',
 };
 
 export default defineMessages({
@@ -28,5 +31,13 @@ export default defineMessages({
   [ERRORS.DEFAULT]: {
     id: 'app.components.TranslatedTimePicker.defaultError',
     defaultMessage: 'Error',
+  },
+  [ERRORS.EMPTY]: {
+    id: 'app.components.TranslatedTimePicker.empty',
+    defaultMessage: 'Required Field',
+  },
+  [ERRORS.NUMBER]: {
+    id: 'app.components.TranslatedTimePicker.number',
+    defaultMessage: 'Must be a valid number',
   },
 });

@@ -24,7 +24,8 @@ function* addMustSaga(action) {
     const payload = yield call(sendDrink, action.payload);
     yield put(mustAdded(payload));
   } catch (error) {
-    yield put(mustAddedError(error));
+    const payload = yield call(transformError, error);
+    yield put(mustAddedError(payload));
   }
 }
 
@@ -73,6 +74,32 @@ export function* root() {
   yield cancel(watcherBrands);
   yield cancel(watcherRules);
   yield cancel(watcherMustAdded);
+}
+
+function objectMap(object, fn) {
+  return Object.keys(object).reduce((result, key) => Object.assign(result, { [key]: fn(object[key]) }), {});
+}
+
+function transformError(err) {
+  if (!err.response) {
+    return Promise.resolve({ _error: '500' });
+  }
+  return err.response.json().then(({ error }) => {
+    const fieldErrors = !(error.details && error.details.codes) ? {} : objectMap(error.details.codes, (field) => field[0]);
+    const realErros = tweakErrors(fieldErrors);
+    return Object.assign({ _error: `${error.statusCode}` }, realErros);
+  });
+}
+
+function tweakErrors(errors) {
+  return Object.keys(errors)
+    .reduce((result, field) => {
+      switch (field) {
+        case 'brandId': return Object.assign(result, { brand: errors[field] });
+        case 'date': return Object.assign(result, { time: errors[field] });
+        default: return result;
+      }
+    }, errors);
 }
 
 function forwardTo(location) {

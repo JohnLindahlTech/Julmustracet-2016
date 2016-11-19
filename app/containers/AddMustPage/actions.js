@@ -30,10 +30,10 @@ export function mustAdded(payload) {
   };
 }
 
-export function mustAddedError(error) {
+export function mustAddedError(payload) {
   return {
     type: ADD_MUST_FAILURE,
-    error,
+    payload,
   };
 }
 

@@ -40,6 +40,11 @@
     "message": "Registera drucken must till JulmustRacet."
   },
   {
+    "id": "app.components.AddMustPage.error",
+    "defaultMessage": "Something went wrong",
+    "message": "Något gick fruktansvärt fel!"
+  },
+  {
     "id": "app.components.AddMustPage.header",
     "defaultMessage": "Add",
     "message": "Lägg till must"
@@ -68,6 +73,11 @@
     "id": "app.components.AddMustPage.title",
     "defaultMessage": "JulmustRacet Add",
     "message": "JulmustRacet - Lägg till must"
+  },
+  {
+    "id": "app.components.AddMustPage.validationError",
+    "defaultMessage": "The form is invalid",
+    "message": "Fel i formuläret"
   },
   {
     "id": "app.components.App.description",
@@ -315,6 +325,11 @@
     "message": "Error"
   },
   {
+    "id": "app.components.TranslatedAutoComplete.length.max",
+    "defaultMessage": "Too long",
+    "message": "För lång text"
+  },
+  {
     "id": "app.components.TranslatedAutoComplete.presence",
     "defaultMessage": "Required field",
     "message": "Obligatorisk"
@@ -345,6 +360,16 @@
     "message": "Error"
   },
   {
+    "id": "app.components.TranslatedTimePicker.empty",
+    "defaultMessage": "Required Field",
+    "message": "Obligatiskt fält"
+  },
+  {
+    "id": "app.components.TranslatedTimePicker.number",
+    "defaultMessage": "Must be a valid number",
+    "message": "Måste vara ett nummer"
+  },
+  {
     "id": "app.components.TranslatedTimePicker.presence",
     "defaultMessage": "Required field",
     "message": "Obligatorisk"
@@ -358,41 +383,6 @@
     "id": "app.components.TranslatedTimePicker.tooLate",
     "defaultMessage": "Too late",
     "message": "För sent"
-  },
-  {
-    "id": "app.components.TranslatedValidationField.custom.email",
-    "defaultMessage": "Must be a valid email",
-    "message": "Måste vara en giltig epostadress."
-  },
-  {
-    "id": "app.components.TranslatedValidationField.default.error",
-    "defaultMessage": "Invalid",
-    "message": "Ogiltigt"
-  },
-  {
-    "id": "app.components.TranslatedValidationField.presence",
-    "defaultMessage": "Required field",
-    "message": "Obligatorisk"
-  },
-  {
-    "id": "app.components.TranslatedValidationField.too.little",
-    "defaultMessage": "Too little",
-    "message": "För lite"
-  },
-  {
-    "id": "app.components.TranslatedValidationField.too_short",
-    "defaultMessage": "Too short",
-    "message": "För kort"
-  },
-  {
-    "id": "app.components.TranslatedValidationField.uniqueness",
-    "defaultMessage": "Already taken",
-    "message": "Redan upptagen"
-  },
-  {
-    "id": "app.components.TranslatedValidationFieldtoo.much",
-    "defaultMessage": "Too much",
-    "message": "För mycket"
   },
   {
     "id": "app.containers.BrandTopList.header",

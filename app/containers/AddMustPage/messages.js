@@ -50,4 +50,13 @@ export default defineMessages({
     id: 'app.components.AddMustPage.cancel',
     defaultMessage: 'Cancel',
   },
+  500: {
+    id: 'app.components.AddMustPage.error',
+    defaultMessage: 'Something went wrong',
+  },
+  422: {
+    id: 'app.components.AddMustPage.validationError',
+    defaultMessage: 'The form is invalid',
+  },
+
 });
