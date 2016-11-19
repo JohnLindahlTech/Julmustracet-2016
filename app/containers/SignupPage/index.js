@@ -72,7 +72,7 @@ class SignupPage extends React.Component { // eslint-disable-line react/prefer-s
             <Card>
               <CardTitle title={<FormattedMessage {...messages.header} />} />
               <CardText>
-                <form onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} noValidate autoComplete={'off'}>
                   {error && renderError(error)}
                   <div>
                     <Field name="username" component={TranslatedValidationField} type="text" hintText="1337-h4xXx0r" floatingLabelText={formatMessage(messages.username)} />

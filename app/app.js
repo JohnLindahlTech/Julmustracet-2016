@@ -22,6 +22,12 @@ import { useScroll } from 'react-router-scroll';
 import LanguageProvider from 'containers/LanguageProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {
+  red900,
+  red500, red700,
+  green900,
+} from 'material-ui/styles/colors';
 import { selectLocationState } from 'containers/App/selectors';
 import App from 'containers/App';
 import { install } from 'offline-plugin/runtime';
@@ -60,10 +66,21 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: red900,
+    primary2Color: red700,
+    primary3Color: red500,
+    accent1Color: green900,
+
+    pickerHeaderColor: red900,
+  },
+});
+
 
 const render = (translatedMessages) => {
   ReactDOM.render(
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
       <Provider store={store}>
         <LanguageProvider messages={translatedMessages}>
           <Router

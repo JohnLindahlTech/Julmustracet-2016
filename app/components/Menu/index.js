@@ -6,7 +6,6 @@
 
 import React, { PropTypes } from 'react';
 import AppBar from 'material-ui/AppBar';
-import { red900 } from 'material-ui/styles/colors';
 
 import { connect } from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
@@ -56,7 +55,6 @@ class JulMenu extends React.Component {
     return (
       <nav>
         <AppBar
-          style={{ backgroundColor: red900 }}
           title={title}
           iconElementLeft={<PagesMenuList loggedIn={loggedIn} />}
           iconElementRight={loggedIn ? renderLogout(doLogout) : renderLogin()}
@@ -73,7 +71,6 @@ function renderAddButton() {
       <Row>
         <Col>
           <FloatingActionButton
-            backgroundColor={red900}
             className={styles['add-button']}
             containerElement={<Link to="/add" />} // eslint-disable-line jsx-a11y/anchor-has-content
           >

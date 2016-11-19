@@ -22,7 +22,7 @@ import Page from 'components/Page';
 import { Link } from 'react-router';
 import { Row, Col } from 'react-bem-grid';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import { red900, red200, fullWhite } from 'material-ui/styles/colors';
+import { red900 } from 'material-ui/styles/colors';
 import TranslatedValidationField, { ERRORS } from 'components/TranslatedValidationField';
 import messages from './messages';
 
@@ -64,15 +64,6 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
       showPassword,
       error,
     } = this.props;
-    const styles = {
-      thumbSwitched: {
-        backgroundColor: red900,
-      },
-      trackSwitched: {
-        backgroundColor: red200,
-      },
-
-    };
     return (
       <Page messages={messages}>
         <Row xsCenter>
@@ -80,7 +71,7 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
             <Card>
               <CardTitle title={<FormattedMessage {...messages.header} />} subtitle={<span><Link to="/signup"><FormattedMessage {...messages.signup} /></Link></span>} />
               <CardText>
-                <form onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} noValidate autoComplete={'off'}>
                   {error && renderError(error)}
                   <div>
                     <Field name="email" component={TranslatedValidationField} type="email" hintText="john.doe@gmail.com" floatingLabelText={formatMessage(messages.email)} />
@@ -94,12 +85,10 @@ class LoginPage extends React.Component { // eslint-disable-line react/prefer-st
                       component={Toggle}
                       label={formatMessage(messages.showPassword)}
                       labelPosition="right"
-                      thumbSwitchedStyle={styles.thumbSwitched}
-                      trackSwitchedStyle={styles.trackSwitched}
                     />
                   </div>
                   <div>
-                    <RaisedButton backgroundColor={red900} type="submit" labelColor={fullWhite} disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
+                    <RaisedButton primary type="submit" disabled={pristine || submitting} label={<FormattedMessage {...messages.submitForm} />} />
                   </div>
                 </form>
               </CardText>

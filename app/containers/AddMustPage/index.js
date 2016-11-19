@@ -112,7 +112,7 @@ export class AddMustPage extends React.Component { // eslint-disable-line react/
             <Card>
               <CardTitle title={<FormattedMessage {...messages.header} />} />
               <CardText>
-                <form onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} noValidate autoComplete={'off'}>
                   {error && renderError(error)}
                   <div>
                     <Field
