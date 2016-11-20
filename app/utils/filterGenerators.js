@@ -8,6 +8,7 @@ export function generatePlayerSearchFilter(username) {
     include: {
       relation: 'drinks',
       scope: {
+        order: 'date DESC',
         fields: ['amount', 'date', 'id', 'brandId'],
         include: {
           relation: 'brand',
@@ -31,6 +32,7 @@ export function generateBrandSearchFilter(name) {
     include: {
       relation: 'drinks',
       scope: {
+        order: 'date DESC',
         fields: ['amount', 'date', 'id', 'playerId'],
         include: {
           relation: 'player',

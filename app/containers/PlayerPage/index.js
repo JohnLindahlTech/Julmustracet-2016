@@ -12,12 +12,13 @@ import Page from 'components/Page';
 import ProfileView from 'components/ProfileView';
 import selectPlayerPage from './selectors';
 import messages from './messages';
-import { loadPlayer } from './actions';
+import { loadPlayer, deleteDrink } from './actions';
 
 export class PlayerPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
     getPlayer: PropTypes.func,
+    removeDrink: PropTypes.func,
     player: PropTypes.object,
     location: locationShape,
     params: PropTypes.object,
@@ -39,12 +40,14 @@ export class PlayerPage extends React.Component { // eslint-disable-line react/p
     const {
       player,
       location,
+      removeDrink,
     } = this.props;
+    console.log('On Page', this.props, player);
     return (
       <Page messages={messages} isAddAllowed location={location}>
         <Row xsCenter>
           <Col xs={12}>
-            <ProfileView profile={player} />
+            <ProfileView profile={player} removeDrink={removeDrink} />
           </Col>
         </Row>
       </Page>
@@ -57,6 +60,7 @@ const mapStateToProps = selectPlayerPage();
 function mapDispatchToProps(dispatch) {
   return {
     getPlayer: (username) => dispatch(loadPlayer(username)),
+    removeDrink: (drinkId) => dispatch(deleteDrink(drinkId)),
     dispatch,
   };
 }

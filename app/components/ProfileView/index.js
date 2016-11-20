@@ -11,7 +11,18 @@ import { FormattedMessage, FormattedNumber, FormattedDate } from 'react-intl';
 
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn } from 'material-ui/Table';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
+import IconButton from 'material-ui/IconButton';
+import ActionDelete from 'material-ui/svg-icons/action/delete';
 import messages from './messages';
+
+const cellStyle = {
+  paddingLeft: '5px',
+  paddingRight: '5px',
+};
+
+const numberStyle = Object.assign({}, cellStyle, {
+  textAlign: 'right',
+});
 
 function ProfileView(props) {
   if (!props.profile) {
@@ -28,6 +39,7 @@ function ProfileView(props) {
       daily,
       drinks,
     },
+    removeDrink,
   } = props;
   return (
 
@@ -44,10 +56,10 @@ function ProfileView(props) {
             enableSelectAll={false}
           >
             <TableRow>
-              <TableHeaderColumn><FormattedMessage {...messages.date} /></TableHeaderColumn>
-              <TableHeaderColumn><FormattedMessage {...messages.brand} /></TableHeaderColumn>
-              <TableHeaderColumn><FormattedMessage {...messages.amount} /></TableHeaderColumn>
-              <TableHeaderColumn><FormattedMessage {...messages.delete} /></TableHeaderColumn>
+              <TableHeaderColumn style={cellStyle}><FormattedMessage {...messages.date} /></TableHeaderColumn>
+              <TableHeaderColumn style={cellStyle}><FormattedMessage {...messages.brand} /></TableHeaderColumn>
+              <TableHeaderColumn style={numberStyle}><FormattedMessage {...messages.amount} /></TableHeaderColumn>
+              <TableHeaderColumn style={numberStyle}><FormattedMessage {...messages.delete} /></TableHeaderColumn>
             </TableRow>
           </TableHeader>
           <TableBody
@@ -56,7 +68,7 @@ function ProfileView(props) {
             stripedRows
           >
 
-            {drinks.map((drink) => <ProfileRow {...drink} key={drink.id} />)}
+            {drinks.map((drink) => <ProfileRow drink={drink} removeDrink={removeDrink} key={drink.id} />)}
           </TableBody>
         </Table>
       </CardText>
@@ -66,6 +78,7 @@ function ProfileView(props) {
 
 ProfileView.propTypes = {
   profile: PropTypes.object,
+  removeDrink: PropTypes.func,
 };
 
 ProfileView.defaultProps = {
@@ -74,23 +87,32 @@ ProfileView.defaultProps = {
 
 export default ProfileView;
 
-function ProfileRow(drink) {
+function ProfileRow(props) {
   const {
-    date,
-    amount,
-    brand: {
-      name,
-    } = {},
-  } = drink;
+    drink: {
+      date,
+      id,
+      amount,
+      brand: {
+        name,
+      } = {},
+    },
+    removeDrink,
+  } = props;
   return (
     <TableRow title={name}>
-      <TableRowColumn><FormattedDate value={date} /></TableRowColumn>
-      <TableRowColumn>{name}</TableRowColumn>
-      <TableRowColumn><FormattedNumber value={amount} maximumFractionDigits={2} /></TableRowColumn>
-      <TableRowColumn>TODO DELETE BUTTON</TableRowColumn>
+      <TableRowColumn style={cellStyle}><FormattedDate value={date} /></TableRowColumn>
+      <TableRowColumn style={cellStyle}>{name}</TableRowColumn>
+      <TableRowColumn style={numberStyle}><FormattedNumber value={amount} maximumFractionDigits={2} /></TableRowColumn>
+      <TableRowColumn style={numberStyle}><IconButton onClick={() => removeDrink(id)}><ActionDelete /></IconButton></TableRowColumn>
     </TableRow>
   );
 }
+
+ProfileRow.propTypes = {
+  drink: PropTypes.object,
+  removeDrink: PropTypes.func,
+};
 
 function renderSubtitle({ total, daily, position }) {
   const positionNumber = <FormattedNumber value={position} maximumFractionDigits={0} />;
