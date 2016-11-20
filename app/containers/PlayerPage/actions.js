@@ -11,9 +11,10 @@ import {
 } from './constants';
 
 
-export function loadPlayer() {
+export function loadPlayer(username) {
   return {
     type: LOAD_PLAYER,
+    username,
   };
 }
 

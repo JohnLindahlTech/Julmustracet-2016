@@ -16,7 +16,7 @@ import messages from './messages';
 function ProfileView(props) {
   if (!props.profile) {
     return (<div>
-      No data
+      <FormattedMessage {...messages.noData} />
     </div>);
   }
   const {

@@ -17,8 +17,9 @@ export function* getPlayer(username) {
 }
 
 export function* getPlayerWatcher() {
-  while (yield take(LOAD_PLAYER)) {
-    yield call(getPlayer);
+  while (true) {
+    const action = yield take(LOAD_PLAYER);
+    yield call(getPlayer, action.username);
   }
 }
 

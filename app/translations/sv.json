@@ -195,6 +195,11 @@
     "message": "Ta bort"
   },
   {
+    "id": "app.components.ProfileView.noData",
+    "defaultMessage": "No Data",
+    "message": "Ingen data"
+  },
+  {
     "id": "app.components.ProfileView.subtitle",
     "defaultMessage": "Position: {position} - Total: {total} L - Daily: {daily} L/day",
     "message": "Positon: {position} - Totalt: {total}L - Dagligen: {daily}L/dag"

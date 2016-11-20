@@ -26,4 +26,8 @@ export default defineMessages({
     id: 'app.components.ProfileView.delete',
     defaultMessage: 'Delete',
   },
+  noData: {
+    id: 'app.components.ProfileView.noData',
+    defaultMessage: 'No Data',
+  },
 });

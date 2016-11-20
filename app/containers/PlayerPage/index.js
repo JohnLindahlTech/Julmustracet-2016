@@ -17,13 +17,22 @@ import { loadPlayer } from './actions';
 export class PlayerPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   static propTypes = {
-    loadPlayer: PropTypes.func,
+    getPlayer: PropTypes.func,
     player: PropTypes.object,
     location: locationShape,
+    params: PropTypes.object,
   }
 
   componentDidMount() {
-    this.props.loadPlayer();
+    const {
+      getPlayer,
+      params: {
+        username,
+      } = {},
+    } = this.props;
+    if (username) {
+      getPlayer(username);
+    }
   }
 
   render() {
@@ -47,7 +56,7 @@ const mapStateToProps = selectPlayerPage();
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadPlayer: () => dispatch(loadPlayer()),
+    getPlayer: (username) => dispatch(loadPlayer(username)),
     dispatch,
   };
 }
