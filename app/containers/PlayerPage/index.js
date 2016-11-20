@@ -42,7 +42,6 @@ export class PlayerPage extends React.Component { // eslint-disable-line react/p
       location,
       removeDrink,
     } = this.props;
-    console.log('On Page', this.props, player);
     return (
       <Page messages={messages} isAddAllowed location={location}>
         <Row xsCenter>

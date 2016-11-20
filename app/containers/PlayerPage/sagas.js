@@ -13,11 +13,11 @@ import {
 const baseUrl = '/api/Players';
 
 export function* getPlayer(username) {
-  const player = yield call(request, `${baseUrl}?filter=${generatePlayerSearchFilter(username)}`);
-  if (!player.error) {
+  try {
+    const player = yield call(request, `${baseUrl}?filter=${generatePlayerSearchFilter(username)}`);
     yield put(playerLoaded(player.data[0]));
-  } else {
-    yield put(playerLoadingError(player.error));
+  } catch (error) {
+    yield put(playerLoadingError(error));
   }
 }
 
@@ -29,11 +29,11 @@ export function* getPlayerWatcher() {
 }
 
 export function* deleteDrink(drinkId) {
-  const deleteResult = yield call(del, `/api/Drinks/${drinkId}`);
-  if (!deleteResult.error) {
+  try {
+    yield call(del, `/api/Drinks/${drinkId}`);
     yield put(drinkDeleted(drinkId));
-  } else {
-    yield put(drinnkDeletedError(deleteResult.error));
+  } catch (error) {
+    yield put(drinnkDeletedError(error));
   }
 }
 
@@ -55,5 +55,4 @@ export function* playerData() {
 
 export default [
   playerData,
-
 ];
