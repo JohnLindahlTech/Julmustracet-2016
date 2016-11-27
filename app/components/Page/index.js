@@ -41,6 +41,7 @@ class Page extends React.Component { // eslint-disable-line react/prefer-statele
           title={formatMessage(title)}
           meta={[
             { name: 'description', content: formatMessage(description) },
+            { name: 'og:title', content: formatMessage(title) },
           ]}
         />
         <Menu location={location} isAddAllowed={isAddAllowed} title={<FormattedMessage {...header} />} />

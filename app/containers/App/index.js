@@ -33,6 +33,7 @@ class App extends React.Component { // eslint-disable-line react/prefer-stateles
           title={formatMessage(messages.title)}
           meta={[
             { name: 'description', content: formatMessage(messages.description) },
+            { name: 'og:title', content: formatMessage(messages.title) },
           ]}
         />
         {React.Children.toArray(this.props.children)}
